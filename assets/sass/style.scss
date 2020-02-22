@@ -1,0 +1,110 @@
+@import "/variables/_colors.scss";
+@import "./variables/_fonts.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100%;
+  width: 100%;
+  // overflow-x: hidden;
+  position: absolute;
+  
+}
+
+
+// Font Style
+// Headers
+
+h1, h2, h3, h4 {
+  font-family: $header-font; 
+  letter-spacing: 0.2rem;
+  font-weight: 100;
+}
+
+h1 {
+  font-size: $h1;
+  color: $h1-primary;
+  text-shadow: $h1-shadow;
+  -webkit-text-stroke-width: 0.1rem;
+  -webkit-text-stroke-color: $light-pink;
+}
+
+h2 {
+  font-size: $h2;
+  color: $h2-primary;
+  text-align: center;
+}
+
+h3 {
+  font-size: $h3;
+}
+
+h4 {
+  font-size: $h4;
+  color: $bg-secondary;
+}
+
+// Text
+
+p, .pre-text {
+  font-family: $text-font;
+  font-size: $p;
+  color: $p-primary;
+  line-height: 1.4rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+// General Route CSS
+
+.container {
+  height: 54vh;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-family: "Commondore", sans-serif;
+  opacity: 1; /* Firefox */
+  color: $bg-secondary;
+  font-size: 1.2rem;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  font-family: "Commondore", sans-serif;
+  color: $bg-secondary;
+  font-size: 1.2rem;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  font-family: "Commondore", sans-serif;
+  color: $bg-secondary;
+  font-size: 1.2rem;
+}
+.cls-1 {
+  fill: rgba(217, 255, 255, 0.14);
+}
+
+.cls-2 {
+  fill: #ff668d;
+}
+
+.cls-3 {
+  filter: url(#Rectangle_72);
+}
+
+// Input fields 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance:textfield;
+}

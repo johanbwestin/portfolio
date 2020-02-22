@@ -1,0 +1,52 @@
+<template>
+  <div class="content">
+    <h2>Educations</h2>
+    <div class="education-container container">
+      <ul>
+        <li>
+          <pre class="pre-text">Car Mechanic  | 2011 | Bromangymnasiet</pre>
+        </li>
+        <li>
+          <p>Car Inspector | 2015 | NDT Training Partner</p>
+        </li>
+        <li>
+          <p>Web Developer | 2020 | IThögskolan</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>
+<style lang="scss" scoped>
+  @import "../sass/variables/_colors.scss";
+  @import "../sass/variables/_fonts.scss";
+  .education-container {
+    padding: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: {
+      top: 2rem;
+      left: auto;
+      right: auto;
+    }
+    ul {
+      margin: {
+        top: 3rem;
+      }
+      padding: {
+        left: 2rem;
+        right: 1rem;
+      }
+      list-style-image: url("../media/svg/bullet.svg");
+      // list-style-position: inside;
+      li {
+        list-style-type: square;
+        margin-top: 2rem;
+        p,
+        .pre-text {
+          font-size: $li;
+        }
+      }
+    }
+  }
+</style>
