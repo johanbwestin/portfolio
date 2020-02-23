@@ -22,6 +22,10 @@
         </div>
       </form>
     </div>
+    <div v-if="status.result === 'error' || status.result === 'success'" class="bubble">
+      <p>{{ status.message }}</p>
+      <!-- <img class="bubble" src="../media/svg/bubble1.svg" alt="point" /> -->
+    </div>
   </div>
 </template>
 <style lang="scss" scoped>
@@ -29,8 +33,24 @@
   @import "../sass/variables/_fonts.scss";
   .content {
     width: 100%;
+    position: relative;
     display: flex;
     flex-direction: column;
+    .bubble {
+      background-image: url("../media/png/bubble1.png");
+      background-size: contain;
+      height: 10rem;
+      width: 26%;
+      background-repeat: no-repeat;
+      position: absolute;
+      bottom: 5rem;
+      right: -8rem;
+      p {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+      }
+    }
     .contact-container {
       margin: {
         left: auto;
@@ -115,12 +135,29 @@
           text: null,
         },
         answer: null,
+        status: {
+          result: null,
+          message: null
+        },
       }
     },
     mounted() {
 
     },
     methods: {
+      checkResponse(res) {
+        if (res.result === 'success') {
+          // console.log('yas!!', res.message)
+          this.status.message = res.message
+          this.status.result = res.result
+          console.log(this.status)
+        } else {
+          // console.log('nas', res.message)
+          this.status.message = res.message
+          this.status.result = res.result
+          console.log(this.status.message)
+        }
+      },
       submitForm() {
         console.log('submitted!')
         // fetch('http://localhost:3000')
@@ -130,9 +167,14 @@
             'Content-Type': 'application/json'
           },
           method: 'POST'
-        }).then(() => {
-          // location.reload()
-        })
+        }).then(response => response.json())
+          .then(response => {
+            // console.log(response)
+            this.checkResponse(response)
+          })
+          // .then(() => {
+          //   location.reload()
+          // })
       },
       checkForm() {
         if (!this.form.name) {

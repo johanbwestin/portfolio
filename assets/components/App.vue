@@ -1,6 +1,7 @@
 <template>
   <div>
-    <headers />
+    <hamburger-menu />
+    <hero />
     <animations />
     <qualifications />
     <footers />
@@ -11,7 +12,8 @@
 </style>
 <script>
   import Animations from './Animation.vue'
-  import Headers from './Head.vue'
+  import HamburgerMenu from './HamburgerMenu.vue'
+  import Hero from './Hero.vue'
   import Footers from './Foot.vue'
   import Qualifications from './Qualifications.vue'
 
@@ -19,7 +21,8 @@
     components: {
       'animations': Animations,
       'footers': Footers,
-      'headers': Headers,
+      'hamburger-menu': HamburgerMenu,
+      'hero': Hero,
       'qualifications': Qualifications,
     }
   }

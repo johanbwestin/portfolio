@@ -111,6 +111,7 @@
           { lang: 'Javascript', exp: 80 },
           { lang: 'PHP', exp: 70 },
           { lang: 'SQL', exp: 85 },
+          { lang: 'Linus', exp: 100 },
         ],
         fill: '',
       }
