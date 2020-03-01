@@ -1,7 +1,9 @@
 @import "/variables/_colors.scss";
 @import "./variables/_fonts.scss";
+@import "./variables/_breakpoints.scss";
 
 * {
+  scroll-behavior: smooth;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -54,6 +56,21 @@ p, .pre-text {
   font-size: $p;
   color: $p-primary;
   line-height: 1.4rem;
+}
+
+li {
+  list-style: none;
+  a {
+    font-family: $text-font;
+    font-size: 3rem;
+    color: $p-thirdary;
+    line-height: 6.5rem;
+    padding: {
+      top: 2rem;
+      bottom: 2rem;
+    }
+    text-shadow: $shadow;
+  }
 }
 
 a {

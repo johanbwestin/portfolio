@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <h2>Projects</h2>
+    <h2 id="project">Projects</h2>
     <div class="project-container container">
       <div class="project">
         <div class="circle" style="background-image: url('./assets/media/png/eznet1.png')"></div>
@@ -24,6 +24,8 @@
 <style lang="scss" scoped>
   @import "../sass/variables/_colors.scss";
   @import "../sass/variables/_fonts.scss";
+  @import "../sass/variables/_breakpoints.scss";
+
   .content {
     width: 100%;
     .project-container {
@@ -36,13 +38,12 @@
         text-align: center;
         display: flex;
         &:hover {
-         .circle {
-
-           -webkit-filter: blur(4px);
-           filter: blur(1px);
-           box-shadow: none;
-           border: none;
-         }
+          .circle {
+            -webkit-filter: blur(4px);
+            filter: blur(1px);
+            box-shadow: none;
+            border: none;
+          }
           p {
             color: $p-primary;
           }

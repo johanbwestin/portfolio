@@ -1,7 +1,8 @@
 <template>
   <section class="qualification-section">
+    <div class="trigger"></div>
     <div class="content-container">
-      <h2>Qualifications</h2>
+      <h2 id="qualification">Qualifications</h2>
       <div v-view="viewHandler" class="animation-section">
         <div v-for="stats in statistics" :key="stats" class="stat-container">
           <svg
@@ -35,6 +36,7 @@
 <style lang="scss" scoped>
   @import "../sass/variables/_colors.scss";
   @import "../sass/variables/_fonts.scss";
+  @import "../sass/variables/_breakpoints.scss";
 
   .qualification-section {
     height: 170vh;
@@ -43,6 +45,14 @@
     position: absolute;
     top: 280vh;
     display: flex;
+    z-index: 1;
+    .trigger {
+      position: absolute;
+      top: 22%;
+      left: 0;
+      width: 1rem;
+      height: 1rem;
+    }
     .content-container {
       margin: auto;
       display: flex;
@@ -121,13 +131,23 @@
     },
     methods: {
       fillCalc(exp) {
-        if (this.fill) {
-          console.log(this.fill)
-        }
         return exp + "%"
       },
       viewHandler(e) {
-        if (e.type === "enter") {
+        if ( e.percentTop < 0.674 ){
+          this.$store.state.inSection = false
+          console.log( 'insection', this.$store.state.inSection )
+          this.$store.commit('onLeave')
+        }
+        if ( e.percentTop > 0.674 && e.type === 'progress' || this.$store.state.active ) {
+          this.$store.state.inSection = true
+          console.log(e.percentTop)
+          this.$store.commit('onEnter')
+        }
+        if ( e.percentTop < 0.674 && this.$store.state.active ) {
+          this.$store.state.inSection = false
+        }
+        if ( e.type === "enter" ) {
           return this.fill = '0s'
         }
       }

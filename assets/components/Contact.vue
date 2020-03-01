@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <h2>Contact</h2>
+    <h2 id="contact">Contact</h2>
     <div class="contact-container container">
       <form action id="contact-form">
         <input v-model="form.name" placeholder="Name" type="text" name="name" />

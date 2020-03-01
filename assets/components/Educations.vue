@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <h2>Educations</h2>
+    <h2 id="education">Educations</h2>
     <div class="education-container container">
       <ul>
         <li>
@@ -19,6 +19,8 @@
 <style lang="scss" scoped>
   @import "../sass/variables/_colors.scss";
   @import "../sass/variables/_fonts.scss";
+  @import "../sass/variables/_breakpoints.scss";
+
   .education-container {
     padding: auto;
     width: 100%;
@@ -38,7 +40,6 @@
         right: 1rem;
       }
       list-style-image: url("../media/svg/bullet.svg");
-      // list-style-position: inside;
       li {
         list-style-type: square;
         margin-top: 2rem;

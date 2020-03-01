@@ -1,30 +1,31 @@
 <template>
   <section class="animation">
+    <div v-view="viewHandler" class="trigger"></div>
     <div class="about">
       <div class="content-container">
         <router-view />
       </div>
       <div class="animation-menu">
         <router-link to="/">
-          <div class="waypoint-container" @click="onClick({ x: 0, y: 0}, 'hej')">
+          <div class="waypoint-container" @click="$store.commit('walkAnim',{ x: 0, y: 0})">
             <img class="waypoint" src="../media/svg/waypoint-1.svg" />
             <h4>About</h4>
           </div>
         </router-link>
         <router-link to="/projects">
-          <div class="waypoint-container" @click="onClick({ x: 210, y: 0}, 'hej')">
+          <div class="waypoint-container" @click="$store.commit('walkAnim',{ x: 210, y: 0})">
             <img class="waypoint" src="../media/svg/waypoint-2.svg" />
             <h4>Projects</h4>
           </div>
         </router-link>
         <router-link to="/educations">
-          <div class="waypoint-container" @click="onClick({ x: 420, y: 0}, 'hej')">
+          <div class="waypoint-container" @click="$store.commit('walkAnim',{ x: 420, y: 0})">
             <img class="waypoint" src="../media/svg/waypoint-3.svg" />
             <h4>Education</h4>
           </div>
         </router-link>
         <router-link to="/contact">
-          <div class="waypoint-container" @click="onClick({ x: 640, y: 0}, $event)">
+          <div class="waypoint-container" @click="$store.commit('walkAnim', { x: 640, y: 0})">
             <img class="waypoint" src="../media/svg/waypoint-4.svg" />
             <h4>Contact</h4>
           </div>
@@ -38,6 +39,7 @@
 <style lang="scss" scoped>
   @import "../sass/variables/_colors.scss";
   @import "../sass/variables/_fonts.scss";
+  @import "../sass/variables/_breakpoints.scss";
 
   // Fixa routerlinks och animation
 
@@ -53,6 +55,13 @@
     display: flex;
     // align-items: center;
     justify-content: center;
+    .trigger {
+      position: absolute;
+      top: 17%;
+      left: 0;
+      width: 1rem;
+      height: 1rem;
+    }
     .about {
       margin-top: 30rem;
       width: 40%;
@@ -68,13 +77,15 @@
           -webkit-filter: drop-shadow($shadow);
           filter: drop-shadow($shadow);
         }
+        h4 {
+          text-align: center;
+        }
         .router-link-exact-active {
           img {
             -webkit-filter: drop-shadow($shadow-hover);
             filter: drop-shadow($shadow-hover);
           }
           h4 {
-            text-align: center;
             text-shadow: $shadow-hover;
           }
         }
@@ -96,20 +107,6 @@
   }
 </style>
 <script>
-  import {
-    gsap,
-    TweenLite,
-    TimelineLite,
-    MotionPathPlugin,
-    Power1,
-    CSSPlugin
-  } from "gsap/all"
-
-  import "../../node_modules/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap"
-  import "../../node_modules/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators"
-  // import ScrollMagic from "../../node_modules/scrollmagic/scrollmagic/uncompressed/ScrollMagic"
-
-  gsap.registerPlugin(CSSPlugin, TweenLite, gsap, TimelineLite, MotionPathPlugin)
 
   export default {
     data() {
@@ -118,57 +115,70 @@
       }
     },
     mounted() {
-      console.log(process.env.VUE_APP_ENV_VARIABLE)
-      console.log(process.env.NODE_ENV)
-
       let path
 
       if (this.$route.path === "/") {
         path = { x: 0, y: 0 }
-        this.scrollAnimation(path)
+        this.$store.commit('walkAnim', path)
       }
       if (this.$route.path === "/projects") {
         path = { x: 210, y: 0 }
-        this.scrollAnimation(path)
+        this.$store.commit('walkAnim', path)
       }
       if (this.$route.path === "/educations") {
         path = { x: 420, y: 0 }
-        this.scrollAnimation(path)
+        this.$store.commit('walkAnim', path)
       }
       if (this.$route.path === "/contact") {
         path = { x: 640, y: 0 }
-        this.scrollAnimation(path)
+        this.$store.commit('walkAnim', path)
       }
     },
     methods: {
-      scrollAnimation(path) {
-        // console.log(path)
-        const flightPath = {
-          autoRotate: false,
-          curviness: 1.25,
-          path: [path]
+      viewHandler( e ) {
+        if ( e.percentTop < 0.123 || this.$store.state.active ) {
+          this.$store.commit('onEnter')
+          this.$store.state.inSection = true
+          console.log( e.percentTop )
+          // console.log( this.$store.state.inSection )
         }
-        const tween = new TimelineLite()
-        tween.add(
-          TweenLite.to('.johan', 1, {
-            ease: Power1.easeInOut,
-            motionPath: flightPath,
-          })
-        )
-        // const controller = new ScrollMagic.Controller()
+        if ( e.percentTop > 0.123 && !this.$store.state.active ) {
+          this.$store.commit('onLeave')
+          this.$store.state.inSection = false
+          console.log(this.$store.state.inSection)
+        }
+        if ( e.percentTop > 0.123 && this.$store.state.active ) {
+          this.$store.state.inSection = false
+        }
 
-        // const scene = new ScrollMagic.Scene({
-        //   triggerElement: '.animation',
-        //   duration: 3000,
-        //   triggerHook: 0.2
-
-        // }).setTween(tween).addIndicators().addTo(controller).setPin(".animation")
 
       },
-      onClick(path) {
-        // console.log(this.$route.path)
-        this.scrollAnimation(path)
-      }
+      // scrollAnimation(path) {
+      //   const flightPath = {
+      //     autoRotate: false,
+      //     curviness: 1.25,
+      //     path: [path]
+      //   }
+      //   const tween = new TimelineLite()
+      //   tween.add(
+      //     TweenLite.to('.johan', 1, {
+      //       ease: Power1.easeInOut,
+      //       motionPath: flightPath,
+      //     })
+      //   )
+      //   // const controller = new ScrollMagic.Controller()
+
+      //   // const scene = new ScrollMagic.Scene({
+      //   //   triggerElement: '.animation',
+      //   //   duration: 3000,
+      //   //   triggerHook: 0.2
+
+      //   // }).setTween(tween).addIndicators().addTo(controller).setPin(".animation")
+
+      // },
+      // walkAnim(path) {
+      //   this.scrollAnimation(path)
+      // }
     },
   }
 </script>

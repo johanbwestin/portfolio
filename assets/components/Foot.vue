@@ -1,9 +1,9 @@
 <template>
   <footer class="footer">
     <div class="social">
-      <a href>
+      <router-link to="/contact" @click="$store.commit('walkAnim', { x: 640, y: 0 })">
         <img class="icon" src="../media/svg/mail.svg" />
-      </a>
+      </router-link>
       <a href>
         <img class="icon" src="../media/svg/github.svg" />
       </a>
@@ -16,6 +16,7 @@
 <style lang="scss" scoped>
   @import "../sass/variables/_colors.scss";
   @import "../sass/variables/_fonts.scss";
+  @import "../sass/variables/_breakpoints.scss";
 
   footer {
     height: 10vh;
@@ -26,8 +27,10 @@
     align-items: center;
     justify-content: center;
     background-color: $bg-secondary;
+    z-index: 1;
     .social {
       .icon {
+        margin: 0.25rem;
         height: 2rem;
       }
     }

@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <h2>About</h2>
+    <h2 id="about">About</h2>
 
     <div class="about-container container">
       <h3>Lorem Ipsum</h3>
@@ -17,9 +17,11 @@
 <style lang="scss" scoped>
   @import "../sass/variables/_colors.scss";
   @import "../sass/variables/_fonts.scss";
+  @import "../sass/variables/_breakpoints.scss";
 
   .content {
     margin: auto;
+    
     .about-container {
       padding: auto;
       width: 60%;
@@ -28,6 +30,9 @@
         left: auto;
         right: auto;
       }
+      // @include breakpoint(100px) {
+      //   margin: 0;
+      // }
     }
   }
 </style>

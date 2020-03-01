@@ -7,29 +7,37 @@
   </section>
 </template>
 <style lang="scss" scoped>
-  @import "../sass/variables/_colors.scss";
-  @import "../sass/variables/_fonts.scss";
+@import "../sass/variables/_colors.scss";
+@import "../sass/variables/_fonts.scss";
+@import "../sass/variables/_breakpoints.scss";
 
-  .header {
-    width: 100%;
-    height: 150vh;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow-x: hidden;
-    z-index: 1;
-    h1 {
-      position: absolute;
-      z-index: 4;
-      top: 26%;
-    }
-    .video-background {
-      display: block;
-      margin: auto;
-      height: 100%;
-      position: absolute;
-      top: 0;
-    }
+
+.header {
+  width: 100%;
+  height: 150vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  z-index: 1;
+  h1 {
+    position: absolute;
+    z-index: 4;
+    top: 26%;
   }
+  .video-background {
+    display: block;
+    margin: auto;
+    height: 100%;
+    position: absolute;
+    top: 0;
+  }
+}
 </style>
+<script>
+  export default {
+    methods: {
+    },
+  }
+</script>
