@@ -6,7 +6,7 @@
         <input v-model="form.name" placeholder="Name" type="text" name="name" />
         <input v-model="form.email" placeholder="Mail" type="mail" name="mail" />
         <input v-model="form.subject" placeholder="Subject" type="text" name="subject" />
-        <textarea v-model="form.text" placeholder="Message" name="message" rows="6"></textarea>
+        <textarea v-model="form.text" placeholder="Message" name="message"></textarea>
         <div class="submit-container">
           <input
             @click.prevent="submitForm"
@@ -15,49 +15,67 @@
             type="submit"
             name="submit"
           />
-          <div class="answer-container">
-            <p>5+1=</p>
-            <input class="answer" type="number" name="answer" />
-          </div>
+          <!-- <div class="answer-container">
+            <p>Download résumé</p>
+            <input class="answer" type="button" name="answer" />
+          </div> -->
         </div>
       </form>
     </div>
     <div v-if="status.result === 'error' || status.result === 'success'" class="bubble">
       <p>{{ status.message }}</p>
-      <!-- <img class="bubble" src="../media/svg/bubble1.svg" alt="point" /> -->
+      <img class="" src="../media/svg/bubble1.svg" alt="point" />
     </div>
   </div>
 </template>
 <style lang="scss" scoped>
   @import "../sass/variables/_colors.scss";
   @import "../sass/variables/_fonts.scss";
+  @import "../sass/variables/_breakpoints.scss";
   .content {
     width: 100%;
     position: relative;
     display: flex;
     flex-direction: column;
     .bubble {
-      background-image: url("../media/png/bubble1.png");
-      background-size: contain;
-      height: 10rem;
+      // background-image: url("../media/png/bubble1.png");
+      // background-size: contain;
+      // height: 10rem;
       width: 26%;
       background-repeat: no-repeat;
       position: absolute;
       bottom: 5rem;
-      right: -8rem;
+      right: 10rem;
+      img {
+        width: 17rem;
+      }
       p {
+        width: 14rem;
         position: absolute;
-        top: 1rem;
-        left: 1rem;
+        top: 1.5rem;
+        left: 1.5rem;
       }
     }
     .contact-container {
-      margin: {
-        left: auto;
-        right: auto;
-        top: 2rem;
+      // width: 75%;
+      @include breakpoint(xsmax) {
+        width: 90%;
       }
-      width: 75%;
+      @include breakpoint(xsmin) {
+        width: 90%;
+      }
+      @include breakpoint(sm) {
+        width: 70%;
+      }
+      @include breakpoint(md) {
+        width: 60%;
+      }
+      @include breakpoint(lg) {
+        width: 40%;
+      }
+      @include breakpoint(xl) {
+        width: 30%;
+      }
       form {
         display: flex;
         flex-direction: column;
@@ -78,9 +96,29 @@
             left: auto;
             right: auto;
           }
+          @include breakpoint(xsmax) {
+            margin-top: 0.8rem;
+            // height: 1rem;
+          }
+          @include breakpoint(xsmin) {
+            // height: 1rem;
+            margin-top: 0.8rem;
+          }
         }
         textarea {
-          height: 6rem;
+          // height: 6rem;
+          @include breakpoint(xsmax) {
+            // margin-top: 0;
+            height: 4rem;
+          }
+          @include breakpoint(xsmin) {
+            height: 4rem;
+            // margin-top: 0;
+          }
+          @include breakpoint(sm) {
+            height: 6rem;
+            // margin-top: 0;
+          }
         }
         .submit-container {
           display: flex;
@@ -90,6 +128,7 @@
             flex-direction: row;
             margin-top: 1.5rem;
             p {
+              color: $p-thirdary;
               margin: {
                 top: auto;
                 bottom: auto;
@@ -114,6 +153,18 @@
             margin-left: 0;
             &:hover {
               box-shadow: $shadow-hover;
+            }
+            @include breakpoint(xsmax) {
+              width: 50%;
+            }
+            @include breakpoint(xsmin) {
+              width: 50%;
+            }
+            @include breakpoint(sm) {
+              width: 40%;
+            }
+            @include breakpoint(lg) {
+              width: 20%;
             }
           }
         }
@@ -147,19 +198,14 @@
     methods: {
       checkResponse(res) {
         if (res.result === 'success') {
-          // console.log('yas!!', res.message)
           this.status.message = res.message
           this.status.result = res.result
-          console.log(this.status)
         } else {
-          // console.log('nas', res.message)
           this.status.message = res.message
           this.status.result = res.result
-          console.log(this.status.message)
         }
       },
       submitForm() {
-        console.log('submitted!')
         // fetch('http://localhost:3000')
         fetch('/api/send/', {
           body: JSON.stringify(this.form),
@@ -169,12 +215,11 @@
           method: 'POST'
         }).then(response => response.json())
           .then(response => {
-            // console.log(response)
             this.checkResponse(response)
           })
-          // .then(() => {
-          //   location.reload()
-          // })
+        // .then(() => {
+        //   location.reload()
+        // })
       },
       checkForm() {
         if (!this.form.name) {

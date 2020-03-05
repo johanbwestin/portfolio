@@ -25,14 +25,27 @@
     .about-container {
       padding: auto;
       width: 60%;
-      margin: {
-        top: 2rem;
-        left: auto;
-        right: auto;
+      @include breakpoint(xsmin) {
+        // margin-top: 1.5rem;
+        width: 90%;
       }
-      // @include breakpoint(100px) {
-      //   margin: 0;
-      // }
+      @include breakpoint(xsmax) {
+        // margin-top: 1.5rem;
+        width: 90%;
+      }
+      @include breakpoint(md) {
+        // margin-top: 0;
+        width: 50%;
+      }
+      @include breakpoint(lg) {
+        margin-top: 2rem;
+        width: 40%;
+        // width: 60%;
+      }
+      @include breakpoint(xl) {
+        width: 30%;
+        // width: 60%;
+      }
     }
   }
 </style>

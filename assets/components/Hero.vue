@@ -30,7 +30,7 @@
     display: block;
     margin: auto;
     height: 100%;
-    position: absolute;
+    position: absolute;  
     top: 0;
   }
 }

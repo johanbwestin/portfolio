@@ -1,19 +1,38 @@
-// $breakpoints: (
-//   'small'  : 767px,
-//   'medium' : 992px,
-//   'large'  : 1200px,
-// ) !default;
 
-// // In `_mixins.scss`
-// @mixin respond-to($breakpoint) {
-//   @if map-has-key($breakpoints, $breakpoint) {
-//     @media (min-width: map-get($breakpoints, $breakpoint)) {
-//       @content;
-//     }
-//   }
+@mixin breakpoint($class) {
+  @if $class == xsmax {
+    @media (max-width: 320px) { @content; }
+  }
 
-//   @else {
-//     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
-//         + "Please make sure it is defined in `$breakpoints` map.";
-//   }
-// }
+  @if $class == xsmin {
+    @media (min-width: 320px) { @content; }
+  }
+
+  @if $class == xs/s {
+    @media (min-width: 430px) { @content; }
+  }
+ 
+  @else if $class == sm {
+    @media (min-width:  540px) { @content; }
+  }
+ 
+  @else if $class == smed {
+    @media (min-width:  670px) { @content; }
+  }
+ 
+  @else if $class == md {
+    @media (min-width: 992px) { @content; }
+  }
+ 
+  @else if $class == lg {
+    @media (min-width: 1200px) { @content; }
+  }
+
+  @else if $class == xl {
+    @media (min-width: 1700px) { @content; }
+  }
+ 
+  @else {
+    @warn "Breakpoint mixin supports: xsmax, xsmin, smed, sm, md, lg, xl, xs/s";
+  }
+}

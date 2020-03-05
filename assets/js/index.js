@@ -7,7 +7,6 @@ import Projects from '../components/Projects.vue'
 import Educations from '../components/Educations.vue'
 import Contact from '../components/Contact.vue'
 import checkView from 'vue-check-view'
-import VueWaypoint from 'vue-waypoint'
 import Vuex from 'vuex'
 import {
   gsap,
@@ -28,7 +27,6 @@ var VueScrollTo = require('vue-scrollto')
  
 Vue.use(VueScrollTo)
 Vue.use(Vuex)
-Vue.use(VueWaypoint)
 Vue.use(checkView)
 Vue.use(VueRouter)
 
@@ -57,18 +55,8 @@ const mutations = {
         motionPath: flightPath,
       })
     )
-    // const controller = new ScrollMagic.Controller()
-
-    // const scene = new ScrollMagic.Scene({
-    //   triggerElement: '.animation',
-    //   duration: 3000,
-    //   triggerHook: 0.2
-
-    // }).setTween(tween).addIndicators().addTo(controller).setPin(".animation")
-
   },
   walkAnim(e, path) {
-    console.log('path')
     mutations.scrollAnimation(path)
   }
 }

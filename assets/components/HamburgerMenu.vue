@@ -4,8 +4,6 @@
       class="hamburger"
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
-      width="87"
-      height="69"
       viewBox="0 0 87 69"
       @click="onClick"
       @mouseover="mouseOver"
@@ -58,7 +56,12 @@
           <feComposite in="SourceGraphic" />
         </filter>
       </defs>
-      <g id="Group_44" data-name="Group 44" :fill="$store.state.menuColor" transform="translate(-98 -60)">
+      <g
+        id="Group_44"
+        data-name="Group 44"
+        :fill="$store.state.menuColor"
+        transform="translate(-98 -60)"
+      >
         <g transform="matrix(1, 0, 0, 1, 98, 60)" filter="url(#Rectangle_21)">
           <rect
             id="Rectangle_21-2"
@@ -99,12 +102,14 @@
         <router-link v-scroll-to="'#project'" to="/projects">Project</router-link>
       </li>
       <li @click="$store.commit('walkAnim', { x: 420, y: 0 })">
-        <router-link v-scroll-to="'#education'" to="/educations" >Education</router-link>
+        <router-link v-scroll-to="'#education'" to="/educations">Education</router-link>
       </li>
       <li @click="$store.commit('walkAnim', { x: 640, y: 0 })">
         <router-link v-scroll-to="'#contact'" to="/contact">Contact</router-link>
       </li>
-      <li><a v-scroll-to="'#qualification'">Qualification</a></li>
+      <li>
+        <a v-scroll-to="'#qualification'">Qualification</a>
+      </li>
     </ul>
   </nav>
 </template>
@@ -112,17 +117,17 @@
   @import "../sass/variables/_colors.scss";
   @import "../sass/variables/_fonts.scss";
   @import "../sass/variables/_breakpoints.scss";
-  
+
   .main-menu {
     overflow: visible;
-      .svg {
-        overflow: visible;
-        .rectangle {
-          width: 4rem;
-          box-shadow: $shadow;
-          filter: url(#shadow3);
-        }
+    .svg {
+      overflow: visible;
+      .rectangle {
+        width: 4rem;
+        box-shadow: $shadow;
+        filter: url(#shadow3);
       }
+    }
     .menu {
       display: flex;
       flex-direction: column;
@@ -148,6 +153,32 @@
       z-index: 6;
       left: 3rem;
       top: 3rem;
+      width: 87px;
+      height: 69px;
+      @include breakpoint(xsmax) {
+        left: 1rem;
+        top: 1rem;
+        width: 65px;
+        height: 45px;
+      }
+      @include breakpoint(xsmin) {
+        left: 1rem;
+        top: 1rem;
+        width: 65px;
+        height: 45px;
+      }
+      @include breakpoint(sm) {
+        left: 1rem;
+        top: 1rem;
+        width: 65px;
+        height: 45px;
+      }
+      @include breakpoint(md) {
+        left: 3rem;
+        top: 3rem;
+        width: 87px;
+        height: 69px;
+      }
     }
   }
 </style>
@@ -170,21 +201,21 @@
         this.shadowColor = '#D72EDD'
       },
       onClick() {
-        if ( !this.$store.state.active ) {
+        if (!this.$store.state.active) {
           this.$store.state.active = true
           this.$store.state.menuColor = '#162452'
         } else {
           this.$store.commit('onEnter')
-          if ( this.$store.state.inSection ) {
+          if (this.$store.state.inSection) {
             this.$store.commit('onEnter')
-            console.log( 'insection',this.$store.state.inSection, 'active', this.$store.state.active)
+            console.log('insection', this.$store.state.inSection, 'active', this.$store.state.active)
           } else {
             this.$store.commit('onLeave')
-            console.log('!insection',this.$store.state.inSection, 'active', this.$store.state.active)
+            console.log('!insection', this.$store.state.inSection, 'active', this.$store.state.active)
           }
           this.$store.state.active = false
         }
-        if ( !this.$store.state.active && !this.$store.state.inSection ) {
+        if (!this.$store.state.active && !this.$store.state.inSection) {
           console.log('test')
           this.$store.commit('onLeave')
         }

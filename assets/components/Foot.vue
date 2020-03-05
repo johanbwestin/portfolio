@@ -22,12 +22,20 @@
     height: 10vh;
     width: 100%;
     position: absolute;
-    top: 438vh;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: $bg-secondary;
     z-index: 1;
+    @include breakpoint(xsmax) {
+      top: 480vh;
+    }
+    @include breakpoint(xsmin) {
+      top: 480vh;
+    }
+    @include breakpoint(sm) {
+      top: 428vh;
+    }
     .social {
       .icon {
         margin: 0.25rem;

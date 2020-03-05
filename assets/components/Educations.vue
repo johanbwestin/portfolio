@@ -4,7 +4,7 @@
     <div class="education-container container">
       <ul>
         <li>
-          <pre class="pre-text">Car Mechanic  | 2011 | Bromangymnasiet</pre>
+          <p>Car Mechanic  | 2011 | Bromangymnasiet</p>
         </li>
         <li>
           <p>Car Inspector | 2015 | NDT Training Partner</p>
@@ -26,11 +26,6 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: {
-      top: 2rem;
-      left: auto;
-      right: auto;
-    }
     ul {
       margin: {
         top: 3rem;
@@ -43,9 +38,19 @@
       li {
         list-style-type: square;
         margin-top: 2rem;
-        p,
-        .pre-text {
+        p {
+          @include breakpoint(xsmax) {
+            white-space: pre-wrap;
+            font-size: 1rem;
+          }
+          @include breakpoint(xsmin) {
+            white-space: pre-wrap;
+            font-size: 1rem;
+          }
+          @include breakpoint(sm) {
+            white-space: pre-wrap;
           font-size: $li;
+          }
         }
       }
     }

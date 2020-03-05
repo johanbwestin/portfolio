@@ -9,29 +9,51 @@
         <router-link to="/">
           <div class="waypoint-container" @click="$store.commit('walkAnim',{ x: 0, y: 0})">
             <img class="waypoint" src="../media/svg/waypoint-1.svg" />
+            <img class="waypoint-sm" src="../media/svg/wp-small.svg" />
             <h4>About</h4>
           </div>
         </router-link>
+        <div class="dot-container">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
         <router-link to="/projects">
           <div class="waypoint-container" @click="$store.commit('walkAnim',{ x: 210, y: 0})">
             <img class="waypoint" src="../media/svg/waypoint-2.svg" />
+            <img class="waypoint-sm" src="../media/svg/wp-small.svg" />
             <h4>Projects</h4>
           </div>
         </router-link>
+        <div class="dot-container">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
         <router-link to="/educations">
           <div class="waypoint-container" @click="$store.commit('walkAnim',{ x: 420, y: 0})">
             <img class="waypoint" src="../media/svg/waypoint-3.svg" />
+            <img class="waypoint-sm" src="../media/svg/wp-small.svg" />
             <h4>Education</h4>
           </div>
         </router-link>
+        <div class="dot-container">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
         <router-link to="/contact">
           <div class="waypoint-container" @click="$store.commit('walkAnim', { x: 640, y: 0})">
             <img class="waypoint" src="../media/svg/waypoint-4.svg" />
+            <img class="waypoint-sm" src="../media/svg/wp-small.svg" />
             <h4>Contact</h4>
           </div>
         </router-link>
         <img class="johan" src="../media/png/johan-front-r.png" alt="point" />
-        <img class="path" src="../media/svg/path1.svg" />
+        <!-- <img class="path" src="../media/svg/path1.svg" /> -->
       </div>
     </div>
   </section>
@@ -40,8 +62,6 @@
   @import "../sass/variables/_colors.scss";
   @import "../sass/variables/_fonts.scss";
   @import "../sass/variables/_breakpoints.scss";
-
-  // Fixa routerlinks och animation
 
   .animation {
     z-index: 4;
@@ -53,7 +73,6 @@
     position: absolute;
     top: 116vh;
     display: flex;
-    // align-items: center;
     justify-content: center;
     .trigger {
       position: absolute;
@@ -63,30 +82,115 @@
       height: 1rem;
     }
     .about {
-      margin-top: 30rem;
-      width: 40%;
+      margin-top: 52vh;
+      width: 100%;
       text-shadow: $shadow;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .content-container {
+        width: 100%;
+      }
       .animation-menu {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         position: relative;
-        .waypoint {
-          flex: 1;
-          position: relative;
-          z-index: 1;
-          -webkit-filter: drop-shadow($shadow);
-          filter: drop-shadow($shadow);
+        width: 100%;
+        @include breakpoint(sm) {
+          width: 30rem;
         }
-        h4 {
-          text-align: center;
+        @include breakpoint(smed) {
+          width: 40rem;
         }
-        .router-link-exact-active {
-          img {
-            -webkit-filter: drop-shadow($shadow-hover);
-            filter: drop-shadow($shadow-hover);
+        @include breakpoint(md) {
+          width: 44rem;
+        }
+        @include breakpoint(lg) {
+          width: 47rem;
+        }
+        .dot-container {
+          width: 100%;
+          justify-content: space-around;
+          @include breakpoint(xsmin) {
+            display: none;
+          }
+          @include breakpoint(xsmax) {
+            display: none;
+          }
+          @include breakpoint(sm) {
+            display: flex;
+          }
+
+          .dot {
+            margin-top: 0.5rem;
+            display: block;
+            height: 0.4rem;
+            width: 0.4rem;
+            background-color: $bg-secondary;
+            border: 1px solid #d72edd;
+          }
+        }
+        .waypoint-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+
+          @include breakpoint(xsmax) {
+            width: 100%;
+            margin: {
+              left: auto;
+              right: auto;
+            }
+          }
+          @include breakpoint(xsmin) {
+            width: 100%;
+            margin: {
+              left: auto;
+              right: auto;
+            }
+          }
+          .waypoint,
+          .waypoint-sm {
+            flex: 1;
+            position: relative;
+            z-index: 1;
+            -webkit-filter: drop-shadow($shadow);
+            filter: drop-shadow($shadow);
+          }
+          .waypoint {
+            @include breakpoint(xsmax) {
+              display: none;
+            }
+            @include breakpoint(xsmin) {
+              display: none;
+            }
+            @include breakpoint(sm) {
+              display: flex;
+            }
+          }
+          .waypoint-sm {
+            @include breakpoint(xsmax) {
+              display: flex;
+            }
+            @include breakpoint(xsmin) {
+              display: flex;
+            }
+            @include breakpoint(sm) {
+              display: none;
+            }
           }
           h4 {
-            text-shadow: $shadow-hover;
+            text-align: center;
+          }
+          .router-link-exact-active {
+            img {
+              -webkit-filter: drop-shadow($shadow-hover);
+              filter: drop-shadow($shadow-hover);
+            }
+            h4 {
+              text-shadow: $shadow-hover;
+            }
           }
         }
         .johan {
@@ -95,12 +199,15 @@
           height: 7rem;
           bottom: 70%;
           left: 3.5%;
-        }
-        .path {
-          position: absolute;
-          top: 12px;
-          left: 88px;
-          z-index: 0;
+          @include breakpoint(xsmax) {
+            display: none;
+          }
+          @include breakpoint(xsmin) {
+            display: none;
+          }
+          @include breakpoint(sm) {
+            display: flex;
+          }
         }
       }
     }
@@ -135,19 +242,16 @@
       }
     },
     methods: {
-      viewHandler( e ) {
-        if ( e.percentTop < 0.123 || this.$store.state.active ) {
+      viewHandler(e) {
+        if (e.percentTop < 0.123 || this.$store.state.active) {
           this.$store.commit('onEnter')
           this.$store.state.inSection = true
-          console.log( e.percentTop )
-          // console.log( this.$store.state.inSection )
         }
-        if ( e.percentTop > 0.123 && !this.$store.state.active ) {
+        if (e.percentTop > 0.123 && !this.$store.state.active) {
           this.$store.commit('onLeave')
           this.$store.state.inSection = false
-          console.log(this.$store.state.inSection)
         }
-        if ( e.percentTop > 0.123 && this.$store.state.active ) {
+        if (e.percentTop > 0.123 && this.$store.state.active) {
           this.$store.state.inSection = false
         }
 
