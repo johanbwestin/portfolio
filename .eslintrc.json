@@ -15,8 +15,13 @@
         }
       }
     ],
+    "parser": "babel-eslint",
     "parserOptions": {
-      "sourceType": "module"
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true,
+        "modules": true
+      }
     },
     "ignorePatterns": ["bundle.js"],
     "rules": {

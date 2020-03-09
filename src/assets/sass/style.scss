@@ -1,0 +1,224 @@
+@import "/variables/_colors.scss";
+@import "./variables/_fonts.scss";
+@import "./variables/_breakpoints.scss";
+
+* {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100%;
+  width: 100%;
+  // overflow-x: hidden;
+  position: absolute;
+  overflow-x: hidden;
+}
+
+// Font Style
+// Headers
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $header-font;
+  letter-spacing: 0.2rem;
+  font-weight: 100;
+}
+
+h1 {
+  // font-size: $h1;
+  color: $h1-primary;
+  text-shadow: $h1-shadow;
+  -webkit-text-stroke-width: 0.1rem;
+  -webkit-text-stroke-color: $light-pink;
+
+  @include breakpoint(xsmax) {
+    font-size: 2rem;
+  }
+  @include breakpoint(xsmin) {
+    font-size: 2rem;
+  }
+  @include breakpoint(sm) {
+    font-size: 4rem;
+  }
+  @include breakpoint(md) {
+    font-size: $h2;
+  }
+  @include breakpoint(lg) {
+    font-size: $h1;
+  }
+}
+
+h2 {
+  // font-size: $h2;
+  color: $h2-primary;
+  text-align: center;
+  @include breakpoint(xsmax) {
+    font-size: 1.5rem;
+  }
+  @include breakpoint(xsmin) {
+    font-size: 1.5rem;
+  }
+  @include breakpoint(sm) {
+    font-size: 2rem;
+  }
+  @include breakpoint(md) {
+    font-size: 3rem;
+  }
+  @include breakpoint(lg) {
+    font-size: $h2;
+  }
+}
+
+h3 {
+  font-size: $h3;
+  @include breakpoint(xsmax) {
+    font-size: $h4;
+  }
+  @include breakpoint(xsmin) {
+    font-size: $h4;
+  }
+  @include breakpoint(sm) {
+    font-size: $h4;
+  }
+  @include breakpoint(md) {
+    font-size: $h3;
+  }
+  @include breakpoint(lg) {
+    font-size: $h3;
+  }
+}
+
+h4 {
+  color: $bg-secondary;
+  @include breakpoint(xsmax) {
+    font-size: 0.6rem;
+  }
+  @include breakpoint(xsmin) {
+    font-size: 0.6rem;
+  }
+  @include breakpoint(sm) {
+    font-size: $h4;
+  }
+}
+
+// Text
+
+p,
+.pre-text {
+  font-family: $text-font;
+  font-size: $p;
+  color: $p-primary;
+  // @include breakpoint(xsmax) {
+  //   font-size: 0.8rem;
+  //   line-height: 1rem;
+  // }
+  // @include breakpoint(xsmin) {
+  //   font-size: 0.8rem;
+  //   line-height: 1rem;
+  // }
+  
+  @include breakpoint(xsmax) {
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+  }
+  @include breakpoint(sm) {
+    font-size: $p;
+    line-height: 1.4rem;
+  }
+}
+
+li {
+  list-style: none;
+  a {
+    font-family: $text-font;
+    font-size: 3rem;
+    color: $p-thirdary;
+    line-height: 6.5rem;
+    padding: {
+      top: 2rem;
+      bottom: 2rem;
+    }
+    text-shadow: $shadow;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+// General Route CSS
+
+.container {
+  // height: 54vh;
+  margin: {
+    left: auto;
+    right: auto;
+    top: 2rem;
+  }
+  @include breakpoint(xsmax) {
+    margin-top: 0;
+    height: 65vh;
+  }
+  @include breakpoint(xsmin) {
+    height: 65vh;
+    margin-top: 0;
+  }
+  @include breakpoint(sm) {
+    height: 54vh;
+    margin: {
+      left: auto;
+      right: auto;
+      top: 2rem;
+    }
+  }
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-family: "Commondore", sans-serif;
+  opacity: 1; /* Firefox */
+  color: $bg-secondary;
+  font-size: 1.2rem;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  font-family: "Commondore", sans-serif;
+  color: $bg-secondary;
+  font-size: 1.2rem;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  font-family: "Commondore", sans-serif;
+  color: $bg-secondary;
+  font-size: 1.2rem;
+}
+.cls-1 {
+  fill: rgba(217, 255, 255, 0.14);
+}
+
+.cls-2 {
+  fill: #ff668d;
+}
+
+.cls-3 {
+  filter: url(#Rectangle_72);
+}
+
+// Input fields
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}

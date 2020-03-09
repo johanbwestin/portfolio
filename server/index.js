@@ -1,36 +1,28 @@
 require('dotenv').config()
 const express = require('express')
-const sgMail = require('@sendgrid/mail')
 const bodyParser = require('body-parser')
 const path = require('path')
 const app = express()
+const port = process.env.PORT || 5000
 
+// Middleware
 app.use(bodyParser.json())
 app.use(express.static(path.join(path.resolve(), 'public')))
-sgMail.setApiKey(process.env.SENDGRID_API)
 
-app.post('/send', function (request, response) {
-  const msg = {
-    to: process.env.MAIL,
-    from: request.body.email,
-    subject: 'Namn: ' + request.body.name + '. ' + request.body.subject,
-    text: request.body.text,
-    html: '<strong>' + request.body.text + '</strong>',
-  }
+// Handle Mail
+const mailSend = require('./routes/api/mailSend')
 
-  sgMail.send(msg).then(() => {
-    // console.log('SIGNUP EMAIL SENT')
-    return response.json({ result: "success", message: 'Email has been sent' })
-  })
-    .catch((err) => {
-      // console.log('SIGNUP EMAIL SENT ERROR')
-      return response.json({
-        result: "error",
-        message: err.message
-      })
-    })
+app.use('/api/send', mailSend)
 
-})
-app.listen({ port: 3000 }, function () {
-  console.log('The service is running!')
+// Handle Production
+if(process.env.NODE_ENV === 'production') {
+  // Static Folder
+  app.use(express.static(__dirname + '/public/'))
+
+  // Handle SPA
+  app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'))
+}
+
+app.listen({ port: port }, function () {
+  console.log('The service is running on port!')
 })
