@@ -221,6 +221,7 @@
       }
     },
     mounted() {
+      console.log(process.env.PORT)
       let path
 
       if (this.$route.path === "/") {
