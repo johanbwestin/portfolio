@@ -38,7 +38,7 @@
   export default {
     data() {
       return {
-        video: require('../media/mp4/bg-vid-trim.mp4')
+        video: require('../media/mp4/bg-trim.mp4')
       }
     },
   }
