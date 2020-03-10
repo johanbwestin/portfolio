@@ -1,11 +1,11 @@
 import './assets/sass/style.scss'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import App from './assets/components/App.vue'
-import About from './assets/components/About.vue'
-import Projects from './assets/components/Projects.vue'
-import Educations from './assets/components/Educations.vue'
-import Contact from './assets/components/Contact.vue'
+const App        = () => import ('./assets/components/App.vue')
+const About      = () => import ('./assets/components/About.vue')
+const Projects   = () => import ('./assets/components/Projects.vue')
+const Educations = () => import ('./assets/components/Educations.vue')
+const Contact    = () => import ('./assets/components/Contact.vue')
 import checkView from 'vue-check-view'
 import Vuex from 'vuex'
 import VueScrollTo from "vue-scrollto"
@@ -18,8 +18,8 @@ import {
   CSSPlugin
 } from "gsap/all"
 
-import("../node_modules/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap")
-import("../node_modules/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators")
+// import("../node_modules/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap")
+// import("../node_modules/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators")
 // import ScrollMagic from "../../node_modules/scrollmagic/scrollmagic/uncompressed/ScrollMagic"
 
 gsap.registerPlugin(CSSPlugin, TweenLite, gsap, TimelineLite, MotionPathPlugin)
@@ -38,7 +38,7 @@ const mutations = {
   onLeave() {
     state.menuColor = '#FF668D'
   },
-  scrollAnimation(path) {
+  animationPath(path) {
     const flightPath = {
       autoRotate: false,
       curviness: 1.25,
@@ -53,7 +53,7 @@ const mutations = {
     )
   },
   walkAnim(e, path) {
-    mutations.scrollAnimation(path)
+    mutations.animationPath(path)
   }
 }
 

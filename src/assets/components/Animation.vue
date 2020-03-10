@@ -256,7 +256,7 @@
 
 
       },
-      // scrollAnimation(path) {
+      // animationPath(path) {
       //   const flightPath = {
       //     autoRotate: false,
       //     curviness: 1.25,
@@ -280,7 +280,7 @@
 
       // },
       // walkAnim(path) {
-      //   this.scrollAnimation(path)
+      //   this.animationPath(path)
       // }
     },
   }

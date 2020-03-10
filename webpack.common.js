@@ -60,7 +60,8 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      vue: 'vue/dist/vue.min.js'
+      vue: 'vue/dist/vue.min.js',
+      scrollmagic: './node_modules/scrollmagic/'
     }
   }
 }
