@@ -12,11 +12,11 @@ import {
   Power1,
   CSSPlugin
 } from "gsap/all"
-import App       from './assets/components/App.vue'
-import Projects from './assets/components/Projects.vue'
-const About      = () => import ('./assets/components/About.vue')
-const Educations = () => import ('./assets/components/Educations.vue')
-const Contact    = () => import ('./assets/components/Contact.vue')
+import App        from './assets/components/App.vue'
+import Projects   from './assets/components/Projects.vue'
+import About      from './assets/components/About.vue'
+import Educations from './assets/components/Educations.vue'
+import Contact    from './assets/components/Contact.vue'
 
 // ScrollAnimation
 // import("../node_modules/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap")

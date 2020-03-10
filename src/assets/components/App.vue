@@ -8,14 +8,13 @@
   </div>
 </template>
 <style lang="scss">
-
 </style>
 <script>
-  const Animations     = () => import('./Animation.vue')
-  const HamburgerMenu  = () => import('./HamburgerMenu.vue')
-  const Hero           = () => import('./Hero.vue')
-  const Footers        = () => import('./Foot.vue')
-  const Qualifications = () => import('./Qualifications.vue')
+  import Animations from './Animation.vue'
+  import HamburgerMenu from './HamburgerMenu.vue'
+  import Hero from './Hero.vue'
+  import Footers from './Foot.vue'
+  import Qualifications from './Qualifications.vue'
 
   export default {
     components: {
