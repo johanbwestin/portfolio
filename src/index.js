@@ -1,11 +1,6 @@
 import './assets/sass/style.scss'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-const App        = () => import ('./assets/components/App.vue')
-const About      = () => import ('./assets/components/About.vue')
-const Projects   = () => import ('./assets/components/Projects.vue')
-const Educations = () => import ('./assets/components/Educations.vue')
-const Contact    = () => import ('./assets/components/Contact.vue')
 import checkView from 'vue-check-view'
 import Vuex from 'vuex'
 import VueScrollTo from "vue-scrollto"
@@ -17,7 +12,13 @@ import {
   Power1,
   CSSPlugin
 } from "gsap/all"
+const App        = () => import ('./assets/components/App.vue')
+const About      = () => import ('./assets/components/About.vue')
+const Projects   = () => import ('./assets/components/Projects.vue')
+const Educations = () => import ('./assets/components/Educations.vue')
+const Contact    = () => import ('./assets/components/Contact.vue')
 
+// ScrollAnimation
 // import("../node_modules/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap")
 // import("../node_modules/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators")
 // import ScrollMagic from "../../node_modules/scrollmagic/scrollmagic/uncompressed/ScrollMagic"
