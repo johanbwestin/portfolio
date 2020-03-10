@@ -61,7 +61,7 @@ module.exports = {
   resolve: {
     alias: {
       vue: 'vue/dist/vue.min.js',
-      scrollmagic: './node_modules/scrollmagic/'
+      bgVid: 'src/assets/media/mp4/bg-vid-trim.mp4'
     }
   }
 }
