@@ -1,6 +1,6 @@
-var path = require('path')
+const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-var webpack = require('webpack')
+const webpack = require('webpack')
 const Dotenv = require('dotenv-webpack')
 
 module.exports = {

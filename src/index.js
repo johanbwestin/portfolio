@@ -12,9 +12,9 @@ import {
   Power1,
   CSSPlugin
 } from "gsap/all"
-const App        = () => import ('./assets/components/App.vue')
+import App       from './assets/components/App.vue'
+import Projects from './assets/components/Projects.vue'
 const About      = () => import ('./assets/components/About.vue')
-const Projects   = () => import ('./assets/components/Projects.vue')
 const Educations = () => import ('./assets/components/Educations.vue')
 const Contact    = () => import ('./assets/components/Contact.vue')
 

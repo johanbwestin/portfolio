@@ -1,10 +1,10 @@
-var path = require('path')
+const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-var webpack = require('webpack')
+const webpack = require('webpack')
 const Dotenv = require('dotenv-webpack');
 const common = require("./webpack.common")
 const merge = require("webpack-merge")
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = merge(common, {
