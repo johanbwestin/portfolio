@@ -52,7 +52,7 @@
             <h4>Contact</h4>
           </div>
         </router-link>
-        <img class="johan" alt="johan" src="../media/png/johan-front-r.png" alt="point" />
+        <img class="johan" alt="johan" src="../media/png/johan-front-r.png" />
       </div>
     </div>
   </section>
