@@ -190,7 +190,7 @@
           result: null,
           message: null
         },
-        url: `http://localhost:${process.env.PORT}/api/send/`
+        url: `http://185.82.126.241:${process.env.PORT}/api/send/`
       }
     },
     mounted() {

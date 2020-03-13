@@ -16,11 +16,11 @@ router.post('/', (req, res) => {
   }
   
   sgMail.send(msg).then(() => {
-    // console.log('SIGNUP EMAIL SENT')
+    console.log('EMAIL SENT')
     return res.json({ result: "success", message: 'Email has been sent' })
   })
   .catch((err) => {
-    // console.log('SIGNUP EMAIL SENT ERROR')
+    console.log('ERROR')
     return res.json({
       result: "error",
       message: err.message
