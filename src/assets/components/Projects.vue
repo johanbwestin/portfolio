@@ -9,19 +9,6 @@
           <p>{{ project.name }}</p>
         </a>
       </div>
-
-      <!-- <div class="project">
-        <div class="circle" style="background-image: url('./assets/media/png/mat.png')"></div>
-        <p>Alingsås- akademin</p>
-      </div>
-      <div class="project">
-        <div class="circle" style="background-image: url('./assets/media/png/eztv1.png')"></div>
-        <p>EZTV</p>
-      </div>
-      <div class="project">
-        <div class="circle" style="background-image: url('./assets/media/png/bank.png')"></div>
-        <p>Foresight Bank</p>
-      </div>-->
     </div>
   </div>
 </template>
@@ -153,9 +140,9 @@
     data() {
       return {
         projects: [
-          { name: 'EZNET', link: '90', img: require('../media/png/eznet1.png') },
+          { name: 'EZNET', link: '90', img: require('../media/png/eznet.png') },
           { name: 'Alingsås- akademin', link: '90', img: require('../media/png/mat.png') },
-          { name: 'EZTV', link: '50', img: require('../media/png/eztv1.png') },
+          { name: 'EZTV', link: '50', img: require('../media/png/eztv.png') },
           { name: 'Foresight Bank', link: '80', img: require('../media/png/bank.png') },
         ],
       }
