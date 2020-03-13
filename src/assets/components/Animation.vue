@@ -8,8 +8,8 @@
       <div class="animation-menu">
         <router-link to="/">
           <div class="waypoint-container" @click="$store.commit('walkAnim',{ x: 0, y: 0})">
-            <img class="waypoint" src="../media/svg/waypoint-1.svg" />
-            <img class="waypoint-sm" src="../media/svg/wp-small.svg" />
+            <img class="waypoint" alt="waypoint" src="../media/svg/waypoint-1.svg" />
+            <img class="waypoint-sm" alt="waypoint" src="../media/svg/wp-small.svg" />
             <h4>About</h4>
           </div>
         </router-link>
@@ -21,8 +21,8 @@
         </div>
         <router-link to="/projects">
           <div class="waypoint-container" @click="$store.commit('walkAnim',{ x: 210, y: 0})">
-            <img class="waypoint" src="../media/svg/waypoint-2.svg" />
-            <img class="waypoint-sm" src="../media/svg/wp-small.svg" />
+            <img class="waypoint" alt="waypoint" src="../media/svg/waypoint-2.svg" />
+            <img class="waypoint-sm" alt="waypoint" src="../media/svg/wp-small.svg" />
             <h4>Projects</h4>
           </div>
         </router-link>
@@ -34,8 +34,8 @@
         </div>
         <router-link to="/educations">
           <div class="waypoint-container" @click="$store.commit('walkAnim',{ x: 420, y: 0})">
-            <img class="waypoint" src="../media/svg/waypoint-3.svg" />
-            <img class="waypoint-sm" src="../media/svg/wp-small.svg" />
+            <img class="waypoint" alt="waypoint" src="../media/svg/waypoint-3.svg" />
+            <img class="waypoint-sm" alt="waypoint" src="../media/svg/wp-small.svg" />
             <h4>Education</h4>
           </div>
         </router-link>
@@ -47,12 +47,12 @@
         </div>
         <router-link to="/contact">
           <div class="waypoint-container" @click="$store.commit('walkAnim', { x: 640, y: 0})">
-            <img class="waypoint" src="../media/svg/waypoint-4.svg" />
-            <img class="waypoint-sm" src="../media/svg/wp-small.svg" />
+            <img class="waypoint" alt="waypoint" src="../media/svg/waypoint-4.svg" />
+            <img class="waypoint-sm" alt="waypoint" src="../media/svg/wp-small.svg" />
             <h4>Contact</h4>
           </div>
         </router-link>
-        <img class="johan" src="../media/png/johan-front-r.png" alt="point" />
+        <img class="johan" alt="johan" src="../media/png/johan-front-r.png" alt="point" />
       </div>
     </div>
   </section>

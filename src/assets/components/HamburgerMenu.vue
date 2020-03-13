@@ -208,15 +208,14 @@
           this.$store.commit('onEnter')
           if (this.$store.state.inSection) {
             this.$store.commit('onEnter')
-            console.log('insection', this.$store.state.inSection, 'active', this.$store.state.active)
+            // console.log('insection', this.$store.state.inSection, 'active', this.$store.state.active)
           } else {
             this.$store.commit('onLeave')
-            console.log('!insection', this.$store.state.inSection, 'active', this.$store.state.active)
+            // console.log('!insection', this.$store.state.inSection, 'active', this.$store.state.active)
           }
           this.$store.state.active = false
         }
         if (!this.$store.state.active && !this.$store.state.inSection) {
-          console.log('test')
           this.$store.commit('onLeave')
         }
       }

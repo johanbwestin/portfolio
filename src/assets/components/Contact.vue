@@ -24,7 +24,7 @@
     </div>
     <div v-if="status.result === 'error' || status.result === 'success'" class="bubble">
       <p>{{ status.message }}</p>
-      <img class src="../media/svg/bubble1.svg" alt="point" />
+      <img class="bubble" src="../media/svg/bubble1.svg" alt="point" />
     </div>
   </div>
 </template>

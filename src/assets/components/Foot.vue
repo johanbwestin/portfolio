@@ -2,13 +2,13 @@
   <footer class="footer">
     <div class="social">
       <router-link to="/contact" @click="$store.commit('walkAnim', { x: 640, y: 0 })">
-        <img class="icon" src="../media/svg/mail.svg" />
+        <img class="icon" alt="mail icon" src="../media/svg/mail.svg" />
       </router-link>
       <a href>
-        <img class="icon" src="../media/svg/github.svg" />
+        <img class="icon" alt="github icon" src="../media/svg/github.svg" />
       </a>
       <a href>
-        <img class="icon" src="../media/svg/linkedin.svg" />
+        <img class="icon" alt="linkedin icon" src="../media/svg/linkedin.svg" />
       </a>
     </div>
   </footer>

@@ -5,7 +5,7 @@
     <div class="project-container container">
       <div v-for="project in projects" :key="project" class="project">
         <a :href="project.link">
-          <div class="circle" :style="{'background-image': 'url(' + project.img + ')'}"></div>
+          <div class="circle" :style="{'background-image': 'url(' + project.img + ')'}" :alt="project.name"></div>
           <p>{{ project.name }}</p>
         </a>
       </div>
