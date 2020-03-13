@@ -190,7 +190,7 @@
           result: null,
           message: null
         },
-        url: `http://185.82.126.241:${process.env.PORT}/api/send/`
+        url: `https://johanwestin.com/api/send/`
       }
     },
     mounted() {
