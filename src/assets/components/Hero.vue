@@ -32,14 +32,15 @@
     h1 {
       position: absolute;
       z-index: 4;
-      top: 26%;
+      top: 22%;
     }
     .video-background {
       display: block;
       margin: auto;
       height: 100%;
+      width: 100%;
       position: absolute;
-      top: 0;
+      bottom: 170px;
     }
     video:-webkit-full-screen {
       width: 100%;
