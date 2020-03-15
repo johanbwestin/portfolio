@@ -9,7 +9,7 @@
       autoplay
       loop
       muted
-      plays-inline
+      playsinline
     >
       <source :src="video" type="video/mp4" />
     </video>
