@@ -32,23 +32,27 @@
     h1 {
       position: absolute;
       z-index: 4;
-      top: 22%;
+      // top: 22%;
+      top: 27%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
     .video-background {
-  position: fixed;
-  top: 50%; left: 50%;
-  z-index: 1;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translate(-50%, -50%);
+      position: fixed;
+      top: 57%;
+      left: 50%;
+      z-index: 1;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
     }
-    video:-webkit-full-screen {
-      width: 100%;
-      height: 100%;
-      max-height: 100%;
-    }
+    // video:-webkit-full-screen {
+    //   width: 100%;
+    //   height: 100%;
+    //   max-height: 100%;
+    // }
   }
 </style>
 <script>
