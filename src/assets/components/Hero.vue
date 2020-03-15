@@ -35,12 +35,14 @@
       top: 22%;
     }
     .video-background {
-      display: block;
-      margin: auto;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      bottom: 170px;
+  position: fixed;
+  top: 50%; left: 50%;
+  z-index: 1;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
     }
     video:-webkit-full-screen {
       width: 100%;
