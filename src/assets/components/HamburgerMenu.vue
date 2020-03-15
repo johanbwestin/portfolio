@@ -96,19 +96,29 @@
     </svg>
     <ul v-if="$store.state.active" class="menu">
       <li @click="$store.commit('walkAnim', { x: 0, y: 0 }), onClick()">
-        <router-link v-scroll-to="'#about'" to="/">About</router-link>
+        <router-link v-scroll-to="'#about'" to="/">
+          <p>About</p>
+        </router-link>
       </li>
       <li @click="$store.commit('walkAnim', { x: 210, y: 0 }), onClick()">
-        <router-link v-scroll-to="'#project'" to="/projects">Project</router-link>
+        <router-link v-scroll-to="'#project'" to="/projects">
+          <p>Project</p>
+        </router-link>
       </li>
       <li @click="$store.commit('walkAnim', { x: 420, y: 0 }), onClick()">
-        <router-link v-scroll-to="'#education'" to="/educations">Education</router-link>
+        <router-link v-scroll-to="'#education'" to="/educations">
+          <p>Education</p>
+        </router-link>
       </li>
       <li @click="$store.commit('walkAnim', { x: 640, y: 0 }), onClick()">
-        <router-link v-scroll-to="'#contact'" to="/contact">Contact</router-link>
+        <router-link v-scroll-to="'#contact'" to="/contact">
+          <p>Contact</p>
+        </router-link>
       </li>
       <li @click="onClick">
-        <a v-scroll-to="'#qualification'">Qualification</a>
+        <a v-scroll-to="'#qualification'">
+          <p>Qualification</p>
+        </a>
       </li>
     </ul>
   </nav>
@@ -137,14 +147,52 @@
       position: fixed;
       background-color: $bg-menu;
       height: 100vh;
-      width: 34%;
+      width: 100%;
+      @include breakpoint(md) {
+        width: 34%;
+      }
+      @include breakpoint(lg) {
+        width: 25%;
+      }
       li {
         list-style: none;
         a {
-          text-decoration: none;
-          &:hover {
-            text-decoration: underline;
-            text-shadow: $shadow-hover;
+          p {
+            margin: {
+              top: 0;
+              bottom: 0;
+            }
+            line-height: 3.5rem;
+            font-size: 1.5rem;
+            color: $p-thirdary;
+            text-shadow: $shadow;
+            border-bottom: 3px solid transparent;
+            @include breakpoint(sm) {
+              font-size: 2rem;
+              margin: {
+                top: 0.5rem;
+                bottom: 0.5rem;
+              }
+            }
+            @include breakpoint(md) {
+              font-size: 1.8rem;
+              margin: {
+                top: 0.5rem;
+                bottom: 0.5rem;
+              }
+            }
+            @include breakpoint(lg) {
+              font-size: 2.5rem;
+              margin: {
+                top: 0.8rem;
+                bottom: 0.8rem;
+              }
+            }
+            &:hover {
+              text-shadow: $shadow-hover;
+              border-bottom: 3px solid #162452;
+              box-shadow: $shadow-underline;
+            }
           }
         }
       }

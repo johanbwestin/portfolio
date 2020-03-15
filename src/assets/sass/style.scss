@@ -110,17 +110,8 @@ h4 {
 p,
 .pre-text {
   font-family: $text-font;
-  font-size: $p;
+  // font-size: $p;
   color: $p-primary;
-  // @include breakpoint(xsmax) {
-  //   font-size: 0.8rem;
-  //   line-height: 1rem;
-  // }
-  // @include breakpoint(xsmin) {
-  //   font-size: 0.8rem;
-  //   line-height: 1rem;
-  // }
-  
   @include breakpoint(xsmax) {
     font-size: 0.8rem;
     line-height: 1.2rem;
