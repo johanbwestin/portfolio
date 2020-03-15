@@ -4,7 +4,6 @@
     <video
       class="video-background"
       alt="background video"
-      controls="false"
       type="video/mp4"
       autoplay
       loop
