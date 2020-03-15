@@ -1,7 +1,7 @@
 <template>
   <section class="header">
     <h1>Johan Westin</h1>
-    <video class="video-background" alt="bg video" controls="false" autoplay loop muted plays-inline>
+    <video class="video-background" alt="background video" controls="false" type='video/mp4' autoplay loop muted plays-inline>
       <source :src="video" type="video/mp4" />
     </video>
   </section>
@@ -29,6 +29,7 @@
       display: block;
       margin: auto;
       height: 100%;
+      width: 100%;
       position: absolute;
       top: 0;
     }
