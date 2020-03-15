@@ -38,9 +38,6 @@
     display: flex;
     flex-direction: column;
     .bubble {
-      // background-image: url("../media/png/bubble1.png");
-      // background-size: contain;
-      // height: 10rem;
       width: 26%;
       background-repeat: no-repeat;
       position: absolute;
@@ -57,7 +54,6 @@
       }
     }
     .contact-container {
-      // width: 75%;
       @include breakpoint(xsmax) {
         width: 90%;
       }
@@ -98,26 +94,20 @@
           }
           @include breakpoint(xsmax) {
             margin-top: 0.8rem;
-            // height: 1rem;
           }
           @include breakpoint(xsmin) {
-            // height: 1rem;
             margin-top: 0.8rem;
           }
         }
         textarea {
-          // height: 6rem;
           @include breakpoint(xsmax) {
-            // margin-top: 0;
             height: 4rem;
           }
           @include breakpoint(xsmin) {
             height: 4rem;
-            // margin-top: 0;
           }
           @include breakpoint(sm) {
             height: 6rem;
-            // margin-top: 0;
           }
         }
         .submit-container {
@@ -173,8 +163,6 @@
   }
 </style>
 <script>
-  // import '@sendgrid/mail'
-
   export default {
     data() {
       return {
@@ -194,7 +182,6 @@
       }
     },
     mounted() {
-
     },
     methods: {
       checkResponse(res) {
@@ -208,7 +195,6 @@
         }
       },
       submitForm() {
-        // fetch('http://localhost:3000')
         fetch(this.url, {
           body: JSON.stringify(this.form),
           headers: {

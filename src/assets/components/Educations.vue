@@ -39,6 +39,7 @@
         list-style-type: square;
         margin-top: 2rem;
         p {
+          color: $p-thirdary;
           @include breakpoint(xsmax) {
             white-space: pre-wrap;
             font-size: 1rem;

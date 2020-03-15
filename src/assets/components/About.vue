@@ -3,13 +3,17 @@
     <h2 id="about">About</h2>
 
     <div class="about-container container">
-      <h3>Lorem Ipsum</h3>
+      <p>Hi!</p>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Praesent gravida mauris at sem facilisis, vitae dignissim odio suscipit.
-        Phasellus interdum lacus eget nisl facilisis eleifend. Donec tempus id mauris in facilisis.
-        Curabitur ut varius nulla. Proin mollis finibus nisi,
-        a tempor metus molestie eu. Aliquam erat volutpat. Suspendisse volutpat nibh.
+        My name is Johan and I am 26 years old soon-to-be web developer. 
+        I am originally from a small town in northern Sweden called 
+        Hudiksvall but as of 2016 I have resided in Gothenburg. I'm 
+        currently studying web development at IT-högskolan in Gothenburg 
+        which i will graduate this may. Although I have spent most of my
+        time in WordPress I must say that what interests me the most is 
+        JavaScript and its frameworks. I have spent much of my free time 
+        learning Vue, Express and React Native. And if I had to pick between
+        frontend and backend I would have to say both.
       </p>
     </div>
   </div>
@@ -21,30 +25,28 @@
 
   .content {
     margin: auto;
-    
     .about-container {
       padding: auto;
-      width: 60%;
+      width: 70%;
       @include breakpoint(xsmin) {
-        // margin-top: 1.5rem;
         width: 90%;
       }
       @include breakpoint(xsmax) {
-        // margin-top: 1.5rem;
         width: 90%;
       }
       @include breakpoint(md) {
-        // margin-top: 0;
         width: 50%;
       }
       @include breakpoint(lg) {
         margin-top: 2rem;
         width: 40%;
-        // width: 60%;
       }
       @include breakpoint(xl) {
         width: 30%;
-        // width: 60%;
+      }
+      p {
+        text-shadow: $text-shadow;
+        color: $p-thirdary;
       }
     }
   }
