@@ -1,8 +1,8 @@
 <template>
   <footer class="footer">
     <div class="social">
-      <router-link v-scroll-to="'#contact'" to="/contact" @click="$store.commit('walkAnim', { x: 640, y: 0 })">
-        <img class="icon" alt="mail icon" src="../media/svg/mail.svg" />
+      <router-link v-scroll-to="'#contact'" to="/contact">
+        <img @click="$store.commit('walkAnim', { x: 640, y: 0 })" class="icon" alt="mail icon" src="../media/svg/mail.svg" />
       </router-link>
       <a href="https://github.com/johanbwestin" target="_blank">
         <img class="icon" alt="github icon" src="../media/svg/github.svg" />
