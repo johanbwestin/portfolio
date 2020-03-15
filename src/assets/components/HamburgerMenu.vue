@@ -95,20 +95,20 @@
       </g>
     </svg>
     <ul v-if="$store.state.active" class="menu">
-      <li @click="$store.commit('walkAnim', { x: 0, y: 0 })">
+      <li @click="$store.commit('walkAnim', { x: 0, y: 0 }), onClick()">
         <router-link v-scroll-to="'#about'" to="/">About</router-link>
       </li>
-      <li @click="$store.commit('walkAnim', { x: 210, y: 0 })">
+      <li @click="$store.commit('walkAnim', { x: 210, y: 0 }), onClick()">
         <router-link v-scroll-to="'#project'" to="/projects">Project</router-link>
       </li>
-      <li @click="$store.commit('walkAnim', { x: 420, y: 0 })">
+      <li @click="$store.commit('walkAnim', { x: 420, y: 0 }), onClick()">
         <router-link v-scroll-to="'#education'" to="/educations">Education</router-link>
       </li>
-      <li @click="$store.commit('walkAnim', { x: 640, y: 0 })">
+      <li @click="$store.commit('walkAnim', { x: 640, y: 0 }), onClick()">
         <router-link v-scroll-to="'#contact'" to="/contact">Contact</router-link>
       </li>
       <li>
-        <a v-scroll-to="'#qualification'">Qualification</a>
+        <a @click="onClick" v-scroll-to="'#qualification'">Qualification</a>
       </li>
     </ul>
   </nav>
@@ -139,6 +139,7 @@
       height: 100vh;
       width: 34%;
       li {
+        list-style: none;
         a {
           text-decoration: none;
           &:hover {
@@ -191,7 +192,6 @@
       }
     },
     mounted() {
-      // console.log(this.$waypointMap)
     },
     methods: {
       mouseOver() {
