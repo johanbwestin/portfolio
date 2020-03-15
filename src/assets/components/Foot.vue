@@ -4,10 +4,10 @@
       <router-link v-scroll-to="'#contact'" to="/contact" @click="$store.commit('walkAnim', { x: 640, y: 0 })">
         <img class="icon" alt="mail icon" src="../media/svg/mail.svg" />
       </router-link>
-      <a href="https://github.com/johanbwestin">
+      <a href="https://github.com/johanbwestin" target="_blank">
         <img class="icon" alt="github icon" src="../media/svg/github.svg" />
       </a>
-      <a href="https://www.linkedin.com/in/johan-westin-57b755125/">
+      <a href="https://www.linkedin.com/in/johan-westin-57b755125/" target="_blank">
         <img class="icon" alt="linkedin icon" src="../media/svg/linkedin.svg" />
       </a>
     </div>

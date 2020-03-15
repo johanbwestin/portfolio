@@ -12,10 +12,10 @@
               class="bg"
             ></div>
             <div class="link-container">
-              <a v-if="project.demo" :href="project.demo" class="demo">
+              <a v-if="project.demo" :href="project.demo" class="demo" target="_blank">
                 <p>Demo ⯈</p>
               </a>
-              <a v-if="project.github" :href="project.github" class="github">
+              <a v-if="project.github" :href="project.github" class="github" target="_blank">
                 <p>Github⯈</p>
               </a>
             </div>
@@ -134,7 +134,7 @@
                   margin-top: 0;
                 }
                 &:hover {
-                  background-color: green;
+                  background-color: #D72EDD;
                 }
               }
             }
@@ -158,7 +158,6 @@
             }
             padding-top: 1rem;
             width: 9rem;
-            text-shadow: none;
           }
           &:hover {
             .circle {
@@ -173,8 +172,8 @@
                 flex-direction: column;
               }
             }
-            p {
-              color: $p-primary;
+            .project-name {
+              text-shadow: $shadow-hover;
             }
           }
         }
