@@ -107,8 +107,8 @@
       <li @click="$store.commit('walkAnim', { x: 640, y: 0 }), onClick()">
         <router-link v-scroll-to="'#contact'" to="/contact">Contact</router-link>
       </li>
-      <li>
-        <a @click="onClick" v-scroll-to="'#qualification'">Qualification</a>
+      <li @click="onClick">
+        <a v-scroll-to="'#qualification'">Qualification</a>
       </li>
     </ul>
   </nav>
