@@ -12,9 +12,6 @@
             xmlns:xlink="http://www.w3.org/1999/xlink"
             xml:space="preserve"
           >
-            <filter id="shadow1">
-              <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#FF668D" />
-            </filter>
             <rect class="stat-bg" x="0%" y="2" />
             <rect class="fill" x="0%" y="2">
               <animate
@@ -30,6 +27,11 @@
           <p>{{ stats.lang }}</p>
         </div>
       </div>
+      <svg class="filter">
+        <filter id="shadow1">
+          <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#FF668D" />
+        </filter>
+      </svg>
     </div>
   </section>
 </template>
@@ -66,6 +68,10 @@
       align-items: center;
       flex-direction: column;
       width: 100%;
+      .filter {
+        height: 0;
+        width: 0;
+      }
       h2 {
         color: $h2-secondary;
         text-shadow: $shadow;
@@ -154,6 +160,7 @@
             height: 100%;
             width: 100%;
             overflow: visible;
+            -webkit-backface-visibility: hidden;
             .stat-bg {
               rx: 6px;
               ry: 6px;
