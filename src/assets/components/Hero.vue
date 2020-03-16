@@ -30,13 +30,16 @@
     z-index: 1;
     h1 {
       position: absolute;
+      width: 100%;
       z-index: 4;
-      // top: 22%;
+      text-align: center;
       top: 27%;
       left: 50%;
       transform: translate(-50%, -50%);
     }
     .video-background {
+      -webkit-backface-visibility: hidden;
+      -webkit-transform-style: preserve-3d;
       position: fixed;
       top: 57%;
       left: 50%;
