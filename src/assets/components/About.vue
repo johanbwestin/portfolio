@@ -45,7 +45,7 @@
         width: 30%;
       }
       p {
-        text-shadow: $text-shadow;
+        text-shadow: none;
         color: $p-thirdary;
       }
     }
