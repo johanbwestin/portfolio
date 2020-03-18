@@ -101,7 +101,7 @@
         </router-link>
       </li>
       <li @click="$store.commit('walkAnim', { x: 210, y: 0 }), onClick()">
-        <router-link v-scroll-to="'#education'" to="/about">
+        <router-link v-scroll-to="'#about'" to="/about">
           <p>About</p>
         </router-link>
       </li>

@@ -64,7 +64,6 @@
         background-color: $p-primary;
         p {
           color: $purple;
-;
         }
       }
       p {
