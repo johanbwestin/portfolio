@@ -95,22 +95,22 @@
       </g>
     </svg>
     <ul v-if="$store.state.active" class="menu">
-      <li @click="$store.commit('walkAnim', { x: 0, y: 0 }), onClick()">
+      <li @click="$store.commit('walkAnim', 'home'), onClick()">
         <router-link v-scroll-to="'#project'" to="/">
           <p>Project</p>
         </router-link>
       </li>
-      <li @click="$store.commit('walkAnim', { x: 210, y: 0 }), onClick()">
+      <li @click="$store.commit('walkAnim', 'about'), onClick()">
         <router-link v-scroll-to="'#about'" to="/about">
           <p>About</p>
         </router-link>
       </li>
-      <li @click="$store.commit('walkAnim', { x: 420, y: 0 }), onClick()">
+      <li @click="$store.commit('walkAnim', 'educations'), onClick()">
         <router-link v-scroll-to="'#education'" to="/educations">
           <p>Education</p>
         </router-link>
       </li>
-      <li @click="$store.commit('walkAnim', { x: 640, y: 0 }), onClick()">
+      <li @click="$store.commit('walkAnim', 'contact'), onClick()">
         <router-link v-scroll-to="'#contact'" to="/contact">
           <p>Contact</p>
         </router-link>

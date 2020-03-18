@@ -32,6 +32,13 @@
     @media (min-width: 1700px) { @content; }
   }
  
+  @else if $class == maxh {
+    @media (max-height: 820px) { @content; }
+  }
+  @else if $class == minh {
+    @media (min-height: 820px) { @content; }
+  }
+ 
   @else {
     @warn "Breakpoint mixin supports: xsmax, xsmin, smed, sm, md, lg, xl, xs/s";
   }

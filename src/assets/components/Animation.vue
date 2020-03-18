@@ -1,5 +1,5 @@
 <template>
-  <section class="animation">
+  <section v-onmedia="mediaMatch" class="animation">
     <div v-view="viewHandler" class="trigger"></div>
     <div class="about">
       <div class="content-container">
@@ -7,7 +7,7 @@
       </div>
       <div class="animation-menu">
         <router-link to="/">
-          <div class="waypoint-container" @click="$store.commit('walkAnim',{ x: 0, y: 0})">
+          <div class="waypoint-container" @click="$store.commit('walkAnim', 'home')">
             <img class="waypoint" alt="waypoint" src="../media/svg/waypoint-1.svg" />
             <img class="waypoint-sm" alt="waypoint" src="../media/svg/wp-small.svg" />
             <h4>Projects</h4>
@@ -20,7 +20,7 @@
           <span class="dot"></span>
         </div>
         <router-link to="/about">
-          <div class="waypoint-container" @click="$store.commit('walkAnim',{ x: 210, y: 0})">
+          <div class="waypoint-container" @click="$store.commit('walkAnim', 'about')">
             <img class="waypoint" alt="waypoint" src="../media/svg/waypoint-2.svg" />
             <img class="waypoint-sm" alt="waypoint" src="../media/svg/wp-small.svg" />
             <h4>About</h4>
@@ -33,7 +33,7 @@
           <span class="dot"></span>
         </div>
         <router-link to="/educations">
-          <div class="waypoint-container" @click="$store.commit('walkAnim',{ x: 420, y: 0})">
+          <div class="waypoint-container" @click="$store.commit('walkAnim','educations')">
             <img class="waypoint" alt="waypoint" src="../media/svg/waypoint-3.svg" />
             <img class="waypoint-sm" alt="waypoint" src="../media/svg/wp-small.svg" />
             <h4>Education</h4>
@@ -46,7 +46,7 @@
           <span class="dot"></span>
         </div>
         <router-link to="/contact">
-          <div class="waypoint-container" @click="$store.commit('walkAnim', { x: 640, y: 0})">
+          <div class="waypoint-container" @click="$store.commit('walkAnim', 'contact')">
             <img class="waypoint" alt="waypoint" src="../media/svg/waypoint-4.svg" />
             <img class="waypoint-sm" alt="waypoint" src="../media/svg/wp-small.svg" />
             <h4>Contact</h4>
@@ -119,6 +119,9 @@
           @include breakpoint(sm) {
             display: flex;
           }
+          @include breakpoint(maxh) {
+            display: none;
+          }
 
           .dot {
             margin-top: 0.5rem;
@@ -167,6 +170,9 @@
             @include breakpoint(sm) {
               display: flex;
             }
+            @include breakpoint(maxh) {
+              display: none;
+            }
           }
           .waypoint-sm {
             @include breakpoint(xsmax) {
@@ -178,13 +184,17 @@
             @include breakpoint(sm) {
               display: none;
             }
+            @include breakpoint(maxh) {
+              display: flex;
+            }
           }
           h4 {
             text-align: center;
           }
         }
         .router-link-exact-active {
-          .waypoint, .waypoint-sm {
+          .waypoint,
+          .waypoint-sm {
             -webkit-filter: drop-shadow($shadow-hover);
             filter: drop-shadow($shadow-hover);
           }
@@ -207,40 +217,54 @@
           @include breakpoint(sm) {
             display: flex;
           }
+          @include breakpoint(maxh) {
+            display: none;
+          }
         }
       }
     }
   }
 </style>
 <script>
-
   export default {
     data() {
       return {
-
       }
     },
     mounted() {
       let path
-
       if (this.$route.path === "/") {
-        path = { x: 0, y: 0 }
-        this.$store.commit('walkAnim', path)
+        path = 'home'
       }
       if (this.$route.path === "/about") {
-        path = { x: 210, y: 0 }
-        this.$store.commit('walkAnim', path)
+        path = 'about'
       }
       if (this.$route.path === "/educations") {
-        path = { x: 420, y: 0 }
-        this.$store.commit('walkAnim', path)
+        path = 'educations'
       }
       if (this.$route.path === "/contact") {
-        path = { x: 640, y: 0 }
-        this.$store.commit('walkAnim', path)
+        path = 'contact'
       }
+      this.$store.commit('walkAnim', path)
     },
     methods: {
+      mediaMatch(alias, matches, init = true) {
+        let path = {}
+
+        if (this.$route.path === "/contact") {
+          path = 'contact'
+        }
+        if (this.$route.path === "/educations") {
+          path = 'educations'
+        }
+        if (this.$route.path === "/about") {
+          path = 'about'
+        }
+        if (this.$route.path === "/") {
+          path = 'home'
+        }
+        this.$store.commit('walkAnim', path)
+      },
       viewHandler(e) {
         if (e.percentTop < 0.123 || this.$store.state.active) {
           this.$store.commit('onEnter')
@@ -253,35 +277,7 @@
         if (e.percentTop > 0.123 && this.$store.state.active) {
           this.$store.state.inSection = false
         }
-
-
       },
-      // animationPath(path) {
-      //   const flightPath = {
-      //     autoRotate: false,
-      //     curviness: 1.25,
-      //     path: [path]
-      //   }
-      //   const tween = new TimelineLite()
-      //   tween.add(
-      //     TweenLite.to('.johan', 1, {
-      //       ease: Power1.easeInOut,
-      //       motionPath: flightPath,
-      //     })
-      //   )
-      //   // const controller = new ScrollMagic.Controller()
-
-      //   // const scene = new ScrollMagic.Scene({
-      //   //   triggerElement: '.animation',
-      //   //   duration: 3000,
-      //   //   triggerHook: 0.2
-
-      //   // }).setTween(tween).addIndicators().addTo(controller).setPin(".animation")
-
-      // },
-      // walkAnim(path) {
-      //   this.animationPath(path)
-      // }
     },
   }
 </script>
