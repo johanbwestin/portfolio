@@ -192,7 +192,7 @@
             //   }
             // }
             @include breakpoint(xl) {
-              font-size: 2.5rem;
+              font-size: 2.2rem;
               margin: {
                 top: 0.8rem;
                 bottom: 0.8rem;
