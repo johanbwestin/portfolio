@@ -72,18 +72,18 @@ const store = new Vuex.Store({
 const router = new VueRouter({
   routes: [
     {
-      component: About,
+      component: Projects,
       path: '/',
       props: true
     },
     {
-      component: Projects,
-      path: '/projects',
+      component: Educations,
+      path: '/educations',
       props: true
     },
     {
-      component: Educations,
-      path: '/educations'
+      component: About,
+      path: '/about'
     },
     {
       component: Contact,

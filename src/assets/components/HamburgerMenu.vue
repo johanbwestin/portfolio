@@ -96,13 +96,13 @@
     </svg>
     <ul v-if="$store.state.active" class="menu">
       <li @click="$store.commit('walkAnim', { x: 0, y: 0 }), onClick()">
-        <router-link v-scroll-to="'#about'" to="/">
-          <p>About</p>
+        <router-link v-scroll-to="'#project'" to="/">
+          <p>Project</p>
         </router-link>
       </li>
       <li @click="$store.commit('walkAnim', { x: 210, y: 0 }), onClick()">
-        <router-link v-scroll-to="'#project'" to="/projects">
-          <p>Project</p>
+        <router-link v-scroll-to="'#education'" to="/about">
+          <p>About</p>
         </router-link>
       </li>
       <li @click="$store.commit('walkAnim', { x: 420, y: 0 }), onClick()">
@@ -152,6 +152,9 @@
         width: 34%;
       }
       @include breakpoint(lg) {
+        width: 30%;
+      }
+      @include breakpoint(xl) {
         width: 25%;
       }
       li {
@@ -181,7 +184,14 @@
                 bottom: 0.5rem;
               }
             }
-            @include breakpoint(lg) {
+            // @include breakpoint(lg) {
+            //   font-size: 2rem;
+            //   margin: {
+            //     top: 0.8rem;
+            //     bottom: 0.8rem;
+            //   }
+            // }
+            @include breakpoint(xl) {
               font-size: 2.5rem;
               margin: {
                 top: 0.8rem;
@@ -202,7 +212,7 @@
       z-index: 6;
       left: 3rem;
       top: 3rem;
-      width: 87px;
+      width: 70px;
       height: 69px;
       @include breakpoint(xsmax) {
         left: 1rem;
@@ -225,8 +235,8 @@
       @include breakpoint(md) {
         left: 3rem;
         top: 3rem;
-        width: 87px;
-        height: 69px;
+        width: 75px;
+        height: 60px;
       }
     }
   }

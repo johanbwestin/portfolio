@@ -1,6 +1,12 @@
 <template>
   <section class="header">
     <h1>Johan Westin</h1>
+    <p class="about">Web developer based in Gothenburg</p>
+    <div @click="$store.commit('walkAnim', { x: 0, y: 0 }), onClick()" class="btn">
+      <router-link v-scroll-to="'#project'" to="/">
+        <p>Projects</p>
+      </router-link>
+    </div>
     <video
       class="video-background"
       alt="background video"
@@ -33,15 +39,46 @@
       width: 100%;
       z-index: 4;
       text-align: center;
-      top: 27%;
+      top: 23%;
       left: 50%;
       transform: translate(-50%, -50%);
     }
+    .about {
+      width: 100%;
+      position: absolute;
+      top: 42%;
+      z-index: 4;
+      text-align: center;
+      // color: $h1-primary;
+      text-shadow: $h1-shadow;
+    }
+    div {
+      // width: 100%;
+      position: absolute;
+      top: 45%;
+      z-index: 4;
+      border: 3px solid $p-primary;
+      box-shadow: $shadow;
+      &:hover {
+        box-shadow: none;
+        background-color: $p-primary;
+        p {
+          color: $purple;
+;
+        }
+      }
+      p {
+        padding: {
+          top: 0.5rem;
+          bottom: 0.5rem;
+          left: 0.5rem;
+          right: 0.5rem;
+        }
+      }
+    }
     .video-background {
-      -webkit-backface-visibility: hidden;
-      -webkit-transform-style: preserve-3d;
       position: fixed;
-      top: 57%;
+      top: 50%;
       left: 50%;
       z-index: 1;
       min-width: 100%;
@@ -50,11 +87,6 @@
       height: auto;
       transform: translate(-50%, -50%);
     }
-    // video:-webkit-full-screen {
-    //   width: 100%;
-    //   height: 100%;
-    //   max-height: 100%;
-    // }
   }
 </style>
 <script>

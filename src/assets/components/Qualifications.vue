@@ -3,6 +3,7 @@
     <div class="trigger"></div>
     <div class="content-container">
       <h2 id="qualification">Qualifications</h2>
+      <!-- <p></p> -->
       <div v-view="viewHandler" class="animation-section">
         <div v-for="stats in statistics" :key="stats" class="stat-container">
           <svg

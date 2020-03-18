@@ -10,7 +10,7 @@
           <div class="waypoint-container" @click="$store.commit('walkAnim',{ x: 0, y: 0})">
             <img class="waypoint" alt="waypoint" src="../media/svg/waypoint-1.svg" />
             <img class="waypoint-sm" alt="waypoint" src="../media/svg/wp-small.svg" />
-            <h4>About</h4>
+            <h4>Projects</h4>
           </div>
         </router-link>
         <div class="dot-container">
@@ -19,11 +19,11 @@
           <span class="dot"></span>
           <span class="dot"></span>
         </div>
-        <router-link to="/projects">
+        <router-link to="/about">
           <div class="waypoint-container" @click="$store.commit('walkAnim',{ x: 210, y: 0})">
             <img class="waypoint" alt="waypoint" src="../media/svg/waypoint-2.svg" />
             <img class="waypoint-sm" alt="waypoint" src="../media/svg/wp-small.svg" />
-            <h4>Projects</h4>
+            <h4>About</h4>
           </div>
         </router-link>
         <div class="dot-container">
@@ -227,7 +227,7 @@
         path = { x: 0, y: 0 }
         this.$store.commit('walkAnim', path)
       }
-      if (this.$route.path === "/projects") {
+      if (this.$route.path === "/about") {
         path = { x: 210, y: 0 }
         this.$store.commit('walkAnim', path)
       }

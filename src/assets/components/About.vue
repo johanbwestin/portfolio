@@ -5,7 +5,7 @@
     <div class="about-container container">
       <p>Hi!</p>
       <p>
-        My name is Johan and I am 26 years old soon-to-be web developer. 
+        My name is Johan and I am 26 years old web developer. 
         I am originally from a small town in northern Sweden called 
         Hudiksvall but as of 2016 I have resided in Gothenburg. I'm 
         currently studying web development at IT-högskolan in Gothenburg 
