@@ -35,6 +35,9 @@
   @else if $class == maxh {
     @media (max-height: 820px) { @content; }
   }
+  @else if $class == maxhsm {
+    @media (max-height: 450px) { @content; }
+  }
   @else if $class == minh {
     @media (min-height: 820px) { @content; }
   }

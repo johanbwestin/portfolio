@@ -87,6 +87,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      @include breakpoint(maxhsm) {
+        margin-top: 39vh;
+      }
       .content-container {
         width: 100%;
       }

@@ -150,6 +150,7 @@ a {
     right: auto;
     top: 2rem;
   }
+  min-height: 22.5rem;
   @include breakpoint(xsmax) {
     margin-top: 0;
     height: 65vh;
@@ -161,9 +162,12 @@ a {
   @include breakpoint(sm) {
     height: 54vh;
     margin: {
-      left: auto;
-      right: auto;
       top: 2rem;
+    }
+  }
+  @include breakpoint(maxh) {
+    margin: {
+      top: 0rem;
     }
   }
 }
