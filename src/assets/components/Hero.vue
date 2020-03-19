@@ -57,7 +57,7 @@
       @include breakpoint(xsmax) {
         top: 42%;
       }
-      @include breakpoint(xs/s) {
+      @include breakpoint(xssm) {
         top: 42%;
       }
       @include breakpoint(maxhsm) {
@@ -80,7 +80,7 @@
       @include breakpoint(xsmax) {
         top: 50%;
       }
-      @include breakpoint(xshsm) {
+      @include breakpoint(xssm) {
         top: 50%;
       }
       @include breakpoint(sm) {

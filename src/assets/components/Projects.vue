@@ -100,7 +100,7 @@
               height: 5rem;
               width: 5rem;
             }
-            @include breakpoint(xs/s) {
+            @include breakpoint(xssm) {
               height: 6rem;
               width: 6rem;
             }

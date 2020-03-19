@@ -8,7 +8,7 @@
     @media (min-width: 320px) { @content; }
   }
 
-  @else if $class == xs/s {
+  @else if $class == xssm {
     @media (min-width: 430px) { @content; }
   }
  
@@ -31,18 +31,18 @@
   @else if $class == xl {
     @media (min-width: 1700px) { @content; }
   }
- 
-  @else if $class == maxh {
-    @media (max-height: 820px) { @content; }
-  }
+  // Max/min height
   @else if $class == maxhsm {
     @media (max-height: 450px) { @content; }
+  }
+  @else if $class == maxh {
+    @media (max-height: 820px) { @content; }
   }
   @else if $class == minh {
     @media (min-height: 820px) { @content; }
   }
  
   @else {
-    @warn "Breakpoint mixin supports: xsmax, xsmin, smed, sm, md, lg, xl, xs/s";
+    @warn $class + "Breakpoint mixin supports: xsmax, xsmin, smed, sm, md, lg, xl, xssm, maxh, minh, maxhsm";
   }
 }
