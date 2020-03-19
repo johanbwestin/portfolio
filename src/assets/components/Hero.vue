@@ -46,11 +46,26 @@
     .about {
       width: 100%;
       position: absolute;
-      top: 42%;
+      // top: 42%;
       z-index: 4;
       text-align: center;
       // color: $h1-primary;
       text-shadow: $h1-shadow;
+      @include breakpoint(xsmin) {
+        top: 45%;
+      }
+      @include breakpoint(xsmax) {
+        top: 42%;
+      }
+      @include breakpoint(xs/s) {
+        top: 42%;
+      }
+      @include breakpoint(maxhsm) {
+        top: 42%;
+      }
+      @include breakpoint(sm) {
+        top: 42%;
+      }
     }
     div {
       // width: 100%;
@@ -59,6 +74,18 @@
       z-index: 4;
       border: 3px solid $p-primary;
       box-shadow: $shadow;
+      @include breakpoint(xsmin) {
+        top: 50%;
+      }
+      @include breakpoint(xsmax) {
+        top: 50%;
+      }
+      @include breakpoint(xshsm) {
+        top: 50%;
+      }
+      @include breakpoint(sm) {
+        top: 45%;
+      }
       &:hover {
         box-shadow: none;
         background-color: $p-primary;
