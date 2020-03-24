@@ -52,6 +52,13 @@
             <h4>Contact</h4>
           </div>
         </router-link>
+        <div
+          v-if="$store.state.status.result === 'error' || $store.state.status.result === 'success'"
+          class="bubble"
+        >
+          <p>{{ $store.state.status.message }}</p>
+          <img class src="../media/svg/bubble1.svg" alt="talk bubble" />
+        </div>
         <img class="johan" alt="johan" src="../media/png/johan-front-r.png" />
       </div>
     </div>
@@ -203,6 +210,84 @@
           }
           h4 {
             text-shadow: $shadow-hover;
+          }
+        }
+        .bubble {
+          width: 14rem;
+          background-repeat: no-repeat;
+          position: absolute;
+          // bottom: 9rem;
+          @include breakpoint(xsmin) {
+            background-color: $bg-primary;
+            border: 6px solid $bg-secondary;
+            height: 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            bottom: 13rem;
+            img {
+              display: none;
+            }
+          }
+          @include breakpoint(xsmax) {
+            background-color: $bg-primary;
+            border: 6px solid $bg-secondary;
+            height: 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            bottom: 13rem;
+            img {
+              display: none;
+            }
+          }
+          @include breakpoint(sm) {
+            height: 11rem;
+            left: 13.5rem;
+            bottom: 9rem;
+            background-color: transparent;
+            border: none;
+            p {
+              left: 1rem;
+              top: 1rem;
+              width: 14rem;
+              position: absolute;
+              z-index: 1;
+            }
+            img {
+              display: block;
+              z-index: 0;
+              width: 14rem;
+              background-color: $bg-primary;
+              -moz-transform: scaleX(-1);
+              -o-transform: scaleX(-1);
+              -webkit-transform: scaleX(-1);
+              transform: scaleX(-1);
+            }
+          }
+          @include breakpoint(smed) {
+            left: 22.5rem;
+          }
+          @include breakpoint(md) {
+            bottom: 8rem;
+            left: 26.5rem;
+          }
+          @include breakpoint(lg) {
+            p {
+              left: 1.5rem;
+            }
+            img {
+              -moz-transform: scaleX(1);
+              -o-transform: scaleX(1);
+              -webkit-transform: scaleX(1);
+              transform: scaleX(1);
+            }
+            left: 43rem;
+          }
+          img {
+            @include breakpoint(maxh) {
+              display: none;
+            }
           }
         }
         .johan {

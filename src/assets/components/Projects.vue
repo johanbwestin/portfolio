@@ -3,26 +3,44 @@
   <div class="content">
     <h2 id="project">Projects</h2>
     <div class="project-container container">
-      <div v-for="project in projects" :key="project" class="project">
-        <div class="circle-container" :href="project.link">
-          <div class="circle">
-            <div
-              :style="{'background-image': 'url(' + project.img + ')'}"
-              :alt="project.name"
-              class="bg"
-            ></div>
-            <div class="link-container">
-              <a v-if="project.demo" :href="project.demo" class="demo" target="_blank">
-                <p>Demo ⯈</p>
-              </a>
-              <a v-if="project.github" :href="project.github" class="github" target="_blank">
-                <p>Github⯈</p>
-              </a>
+      <swiper class="hej" ref="mySwiper" :options="swiperOptions">
+        <swiper-slide v-for="project in projects" :key="project" class="project">
+          <div
+            class="circle-container"
+            @mouseover="onHover(project.exerpt, project.madeFor)"
+            @mouseleave="onHover('')"
+            :href="project.link"
+          >
+            <div class="circle">
+              <div
+                :style="{'background-image': 'url(' + project.img + ')'}"
+                :alt="project.name"
+                class="bg"
+              ></div>
+              <div class="link-container">
+                <a v-if="project.demo" :href="project.demo" class="demo" target="_blank">
+                  <p>Demo ⯈</p>
+                </a>
+                <a v-if="project.github" :href="project.github" class="github" target="_blank">
+                  <p>Github⯈</p>
+                </a>
+              </div>
             </div>
+            <p class="project-name">{{ project.name }}</p>
           </div>
-          <p class="project-name">{{ project.name }}</p>
-        </div>
-      </div>
+        </swiper-slide>
+        <div class="swiper-pagination" slot="pagination"></div>
+      </swiper>
+    </div>
+    <div v-if="exerpt || madeFor" class="exerpt-container">
+      <p v-if="exerpt" class="project-exerpt">
+        <span>Technologies Used:</span>
+        {{ exerpt }}
+      </p>
+      <p v-if="madeFor" class="project-for">
+        <span>Made For:</span>
+        {{ madeFor }}
+      </p>
     </div>
   </div>
 </template>
@@ -31,14 +49,58 @@
   @import "../sass/variables/_fonts.scss";
   @import "../sass/variables/_breakpoints.scss";
 
+  // SWIPER
+  .swiper-pagination ::v-deep {
+    @include breakpoint(lg) {
+      bottom: 2rem;
+    }
+    .swiper-pagination-bullet {
+      opacity: 0.4;
+      border: black solid 1px;
+      background-color: $bg-secondary;
+      box-shadow: $shadow-pag;
+    }
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+      background-color: $bg-secondary;
+    }
+  }
   .content {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    width: 100%;
+    .exerpt-container {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      align-items: center;
+      justify-content: center;
+      @include breakpoint(xsmax) {
+        bottom: 3rem;
+      }
+      @include breakpoint(xsmin) {
+        bottom: 3rem;
+      }
+      @include breakpoint(sm) {
+        bottom: 8rem;
+      }
+      @include breakpoint(md) {
+        width: 50%;
+      }
+      @include breakpoint(maxh) {
+        bottom: 1.5rem;
+      }
+      p {
+        text-align: center;
+        span {
+        }
+      }
+    }
     .project-container {
       display: flex;
-      // margin-top: 2rem;
       justify-content: space-around;
       @include breakpoint(xsmax) {
         width: 100%;
@@ -58,21 +120,35 @@
       @include breakpoint(lg) {
         width: 50%;
       }
+
       .project {
+        position: relative;
         flex-direction: column;
         text-align: center;
         display: flex;
         @include breakpoint(xsmax) {
-          margin-top: 2rem;
+          margin-top: 1rem;
+          align-items: center;
         }
         @include breakpoint(xsmin) {
-          margin-top: 2rem;
+          margin-top: 1rem;
+          align-items: center;
         }
         @include breakpoint(sm) {
           margin-top: 3rem;
+          width: 50%;
+        }
+        @include breakpoint(md) {
+          margin-top: 3rem;
+          width: 33%;
         }
         @include breakpoint(lg) {
-          margin-top: 4rem;
+          margin-top: 2rem;
+          width: 33%;
+        }
+        @include breakpoint(xl) {
+          margin-top: 2rem;
+          width: 25%;
         }
         .circle-container {
           border-radius: 50%;
@@ -80,11 +156,10 @@
           width: 10rem;
           .circle {
             margin: {
-              top: 3rem;
+              // top: 3rem;
               left: auto;
               right: auto;
             }
-            // overflow: hidden;
             position: relative;
             border-radius: 50%;
             display: flex;
@@ -92,27 +167,11 @@
             justify-content: center;
             @include breakpoint(xsmax) {
               margin-top: 0;
-              height: 5rem;
-              width: 5rem;
+              height: 10rem;
+              width: 10rem;
             }
             @include breakpoint(xsmin) {
               margin-top: 0;
-              height: 5rem;
-              width: 5rem;
-            }
-            @include breakpoint(xssm) {
-              height: 6rem;
-              width: 6rem;
-            }
-            @include breakpoint(sm) {
-              height: 6rem;
-              width: 6rem;
-            }
-            @include breakpoint(sm) {
-              height: 7rem;
-              width: 7rem;
-            }
-            @include breakpoint(lg) {
               height: 10rem;
               width: 10rem;
             }
@@ -134,7 +193,7 @@
                   margin-top: 0;
                 }
                 &:hover {
-                  background-color: #D72EDD;
+                  background-color: #d72edd;
                 }
               }
             }
@@ -182,23 +241,97 @@
   }
 </style>
 <script>
+  import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper'
+
+  import 'swiper/css/swiper.css'
+
   export default {
     /* eslint-disable sort-keys */
-    data() {
-      return {
-        projects: [
-          { name: 'EZNET', github: 'https://github.com/jotner/eznet', demo: 'https://jotner.se/eznet/', img: require('../media/png/eznet.png') },
-          { name: 'Alingsås- akademin', github: '', demo: 'http://xn--alingssakademin-mlb.se/', img: require('../media/png/mat.png') },
-          { name: 'EZTV', github: 'https://github.com/jotner/eztv', demo: '', img: require('../media/png/eztv.png') },
-          { name: 'Foresight Bank', github: 'https://github.com/jotner/foresightbank', demo: '', img: require('../media/png/bank.png') },
-        ],
+    components: {
+      Swiper,
+      SwiperSlide
+    },
+    directives: {
+      swiper: directive
+    },
+    computed: {
+      swiper() {
+        return this.$refs.mySwiper.$swiper
       }
     },
     mounted() {
-
+      console.log('Current Swiper instance object', this.swiper)
+      this.swiper.slideTo(0, 1000, true)
+    },
+    data() {
+      return {
+        exerpt: null,
+        for: null,
+        swiperOptions: {
+          slidesPerView: 'auto',
+          pagination: {
+            el: '.swiper-pagination',
+            type: "bullets"
+          },
+          // Some Swiper option/callback...
+        },
+        projects: [
+          {
+            name: 'Johanwestin',
+            github: 'https://github.com/jotner/foresightbank',
+            demo: 'https://johanwestin.com/#/',
+            img: require('../media/png/portfolio.png'),
+            exerpt: 'Vuejs, VueRouter, Vuex, SendGrid, GSAP, Express, Nodejs, Webpack, nginx, letsencrypt, Adobe XD.',
+            madeFor: "Me 😊"
+          },
+          {
+            name: 'EZNET',
+            github: 'https://github.com/jotner/eznet',
+            demo: 'https://jotner.se/eznet/',
+            img: require('../media/png/eznet.png'),
+            exerpt: 'Wordpress, Woocommerce, JavaScript, Swiper, Adobe XD.',
+            madeFor: "School project"
+          },
+          {
+            name: 'Alingsås- akademin',
+            github: '',
+            demo: 'http://xn--alingssakademin-mlb.se/',
+            img: require('../media/png/mat.png'),
+            exerpt: 'Wordpress, JavaScript, Jquery, SCSS, Webpack, Adobe XD.',
+            madeFor: "A Client"
+          },
+          {
+            name: 'EZTV',
+            github: 'https://github.com/jotner/eztv',
+            demo: '',
+            img: require('../media/png/eztv.png'),
+            exerpt: 'Technologies used: PHP, Laravel, Adobe XD.',
+            madeFor: "School project"
+          },
+          {
+            name: 'Foresight Bank',
+            github: 'https://github.com/jotner/foresightbank',
+            demo: '',
+            img: require('../media/png/bank.png'),
+            exerpt: 'Technologies used: Nodejs, Webbpack, Vuejs, Express, Sqlite, Adobe XD.',
+            madeFor: "School project"
+          },
+          {
+            name: 'Everzone',
+            github: 'https://github.com/jotner/everzone',
+            demo: '',
+            img: require('../media/png/everzone.png'),
+            exerpt: 'Technologies used: Wordpress, Adobe XD.',
+            madeFor: "School project"
+          },
+        ],
+      }
     },
     methods: {
-
-    },
+      onHover(exerpt, madeFor) {
+        this.exerpt = exerpt
+        this.madeFor = madeFor
+      }
+    }
   }
 </script>

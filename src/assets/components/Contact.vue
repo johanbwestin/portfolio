@@ -2,30 +2,54 @@
   <div class="content">
     <h2 id="contact">Contact</h2>
     <div class="contact-container container">
-      <form action id="contact-form">
-        <input v-model="form.name" placeholder="Name" type="text" name="name" />
-        <input v-model="form.email" placeholder="Mail" type="mail" name="mail" />
-        <input v-model="form.subject" placeholder="Subject" type="text" name="subject" />
-        <textarea v-model="form.text" placeholder="Message" name="message"></textarea>
-        <div class="submit-container">
-          <input
-            @click.prevent="submitForm"
-            class="submit"
-            value="Submit"
-            type="submit"
-            name="submit"
-          />
-          <!-- <div class="answer-container">
+      <ValidationObserver ref="observer">
+        <form action id="contact-form">
+          <ValidationProvider rules="required" v-slot="{ errors }">
+            <div class="input-container">
+              <input v-model="form.name" placeholder="Name" type="text" name="name" />
+              {{observer}}
+              <p>{{ errors[0] }}</p>
+            </div>
+          </ValidationProvider>
+          <ValidationProvider rules="email" v-slot="{ errors }">
+            <div class="input-container">
+              <input v-model="form.email" placeholder="Mail" type="mail" name="mail" />
+              <p>{{ errors[0] }}</p>
+            </div>
+          </ValidationProvider>
+          <ValidationProvider rules="required" v-slot="{ errors }">
+            <div class="input-container">
+              <input v-model="form.subject" placeholder="Subject" type="text" name="subject" />
+              <p>{{ errors[0] }}</p>
+            </div>
+          </ValidationProvider>
+          <ValidationProvider rules="required" v-slot="{ errors }">
+            <div class="input-container">
+              <textarea v-model="form.text" placeholder="Message" name="message"></textarea>
+              <p class="ta-errmsg">{{ errors[0] }}</p>
+            </div>
+          </ValidationProvider>
+          <div class="submit-container">
+            <input
+              :disabled="observer"
+              @click.prevent="submitForm"
+              class="submit"
+              value="Submit"
+              type="submit"
+              name="submit"
+            />
+            <!-- <div class="answer-container">
             <p>Download résumé</p>
             <input class="answer" type="button" name="answer" />
-          </div>-->
-        </div>
-      </form>
+            </div>-->
+          </div>
+        </form>
+      </ValidationObserver>
     </div>
-    <div v-if="status.result === 'error' || status.result === 'success'" class="bubble">
-      <p>{{ status.message }}</p>
-      <img class="bubble" src="../media/svg/bubble1.svg" alt="talk bubble" />
-    </div>
+    <!-- <div v-if="$store.state.status.result === 'error' || $store.state.status.result === 'success'" class="bubble">
+      <p>{{ $store.state.status.message }}</p>
+      <img class src="../media/svg/bubble1.svg" alt="talk bubble" />
+    </div> -->
   </div>
 </template>
 <style lang="scss" scoped>
@@ -37,22 +61,23 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    .bubble {
-      width: 26%;
-      background-repeat: no-repeat;
-      position: absolute;
-      bottom: 5rem;
-      right: 10rem;
-      img {
-        width: 17rem;
-      }
-      p {
-        width: 14rem;
-        position: absolute;
-        top: 1.5rem;
-        left: 1.5rem;
-      }
-    }
+    // .bubble {
+    //   width: 14rem;
+    //   height: 11rem;
+    //   background-repeat: no-repeat;
+    //   position: absolute;
+    //   bottom: 2rem;
+    //   right: 13rem;
+    //   img {
+    //     width: 14rem;
+    //   }
+    //   p {
+    //     width: 14rem;
+    //     position: absolute;
+    //     top: 1rem;
+    //     left: 1.5rem;
+    //   }
+    // }
     .contact-container {
       @include breakpoint(xsmax) {
         width: 90%;
@@ -76,6 +101,26 @@
         display: flex;
         flex-direction: column;
         text-align: center;
+        span {
+          .input-container {
+            position: relative;
+            p {
+              position: absolute;
+              top: 2.7rem;
+            }
+            .ta-errmsg {
+              @include breakpoint(xsmax) {
+                top: 3.7rem;
+              }
+              @include breakpoint(xsmin) {
+                top: 3.7rem;
+              }
+              @include breakpoint(sm) {
+                top: 5.7rem;
+              }
+            }
+          }
+        }
         input,
         textarea {
           width: 100%;
@@ -93,10 +138,10 @@
             right: auto;
           }
           @include breakpoint(xsmax) {
-            margin-top: 0.8rem;
+            margin-top: 1rem;
           }
           @include breakpoint(xsmin) {
-            margin-top: 0.8rem;
+            margin-top: 1rem;
           }
         }
         textarea {
@@ -163,10 +208,36 @@
   }
 </style>
 <script>
+  import { ValidationProvider, ValidationObserver } from 'vee-validate';
+
+  import { extend } from 'vee-validate';
+  import { required, email } from 'vee-validate/dist/rules';
+
+  extend('positive', value => {
+    if (value >= 0) {
+      return true;
+    }
+
+    return 'The {_field_} field must be a positive number';
+  });
+  extend('required', {
+    ...required,
+    message: 'This field is required'
+  });
+  extend('email', {
+    ...email,
+    message: 'Write a valid email'
+  });
+
   export default {
+    components: {
+      ValidationProvider,
+      ValidationObserver,
+    },
     data() {
       return {
-        errors: [],
+        value: '',
+        // serrors: [],
         form: {
           name: null,
           email: null,
@@ -186,15 +257,25 @@
     methods: {
       checkResponse(res) {
         if (res.result === 'success') {
-          this.status.message = res.message
-          this.status.result = res.result
+          this.$store.state.status.message = res.message
+          this.$store.state.status.result = res.result
           this.clearForm()
         } else {
-          this.status.message = res.message
-          this.status.result = res.result
+          this.$store.state.status.message = res.message
+          this.$store.state.status.result = res.result
         }
+        setTimeout(function(){ 
+          // this.$store.state.status.message = null
+          // this.$store.state.status.result = null
+          location.reload()
+         }, 3000);
       },
-      submitForm() {
+      async submitForm() {
+        let isValid = await this.$refs.observer.validate()
+        console.log(isValid)
+        if (!isValid) {
+          return
+        }
         fetch(this.url, {
           body: JSON.stringify(this.form),
           headers: {
@@ -211,6 +292,7 @@
         this.form.email = ''
         this.form.subject = ''
         this.form.text = ''
+        this.$refs.observer.reset();
       },
       checkForm() {
         if (!this.form.name) {

@@ -116,90 +116,16 @@ const mutations = {
     }
     mutations.animationPath(path)
   },
-  mediaMatch(alias, matches, init = true) {
-    let path = {}
-    // console.log(alias, matches, init)
-    if (this.$route.path === "/contact") {
-      if (alias === 'sm' && matches) {
-        if (this.$mq.sm) {
-          path = { x: 390, y: 0 }
-        }
-      }
-      if (alias === 'smMed' && matches) {
-        if (this.$mq.smMed) {
-          path = { x: 530, y: 0 }
-        }
-      }
-      if (alias === 'md' && matches) {
-        if (this.$mq.md) {
-          path = { x: 590, y: 0 }
-        }
-      }
-      if (alias === 'lg' && matches) {
-        if (this.$mq.lg) {
-          path = { x: 640, y: 0 }
-        }
-      }
-    }
-    if (this.$route.path === "/educations") {
-      if (alias === 'sm' && matches) {
-        if (this.$mq.sm) {
-          path = { x: 260, y: 0 }
-        }
-      }
-      if (alias === 'smMed' && matches) {
-        if (this.$mq.smMed) {
-          path = { x: 355, y: 0 }
-        }
-      }
-      if (alias === 'md' && matches) {
-        if (this.$mq.md) {
-          path = { x: 395, y: 0 }
-        }
-      }
-      if (alias === 'lg' && matches) {
-        if (this.$mq.lg) {
-          path = { x: 425, y: 0 }
-        }
-      }
-    }
-    if (this.$route.path === "/about") {
-      if (alias === 'sm' && matches) {
-        if (this.$mq.sm) {
-          path = { x: 131, y: 0 }
-        }
-      }
-      if (alias === 'smMed' && matches) {
-        if (this.$mq.smMed) {
-          path = { x: 185, y: 0 }
-        }
-      }
-      if (alias === 'md' && matches) {
-        if (this.$mq.md) {
-          path = { x: 203, y: 0 }
-        }
-      }
-      if (alias === 'lg' && matches) {
-        if (this.$mq.lg) {
-          path = { x: 216, y: 0 }
-        }
-      }
-    }
-    if (this.$route.path === "/") {
-      if (alias === 'sm' && matches) {
-        if (this.$mq.sm) {
-          path = { x: 0, y: 0 }
-        }
-      }
-    }
-    this.$store.commit('walkAnim', path)
-  },
 }
 
 const state = {
   active: false,
   inSection: false,
   menuColor: '#FF668D',
+  status: {
+    result: null,
+    message: null
+  }
 }
 
 const store = new Vuex.Store({
