@@ -41,6 +41,10 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
+        test: /\.css$/,
+        use: [ 'vue-style-loader', 'css-loader' ]
+     },
+      {
         test: /\.scss$/,
         use:  ['vue-style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
         // outputPath: 'assets/css'
