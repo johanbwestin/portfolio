@@ -38,7 +38,6 @@
         width: 50%;
       }
       @include breakpoint(lg) {
-        margin-top: 2rem;
         width: 40%;
       }
       @include breakpoint(xl) {
