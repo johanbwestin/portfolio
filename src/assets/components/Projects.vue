@@ -31,6 +31,8 @@
         </swiper-slide>
         <div id="swiper-pagination" class="swiper-pagination" slot="pagination"></div>
       </swiper>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
     <div v-if="exerpt || madeFor" class="exerpt-container">
       <p v-if="exerpt" class="project-exerpt">
@@ -60,6 +62,40 @@
     .swiper-pagination-bullet-active {
       opacity: 1;
       background-color: $bg-secondary;
+    }
+  }
+  .swiper-button-next {
+    color: $p-thirdary;
+    text-shadow: $shadow;
+    outline: none;
+    @include breakpoint(sm) {
+      right: 10%;
+    }
+    @include breakpoint(md) {
+      right: 15%;
+    }
+    @include breakpoint(lg) {
+      right: 20%;
+    }
+    @include breakpoint(xl) {
+      right: 22%;
+    }
+  }
+  .swiper-button-prev {
+    color: $p-thirdary;
+    text-shadow: $shadow;
+    outline: none;
+    @include breakpoint(sm) {
+      left: 10%;
+    }
+    @include breakpoint(md) {
+      left: 15%;
+    }
+    @include breakpoint(lg) {
+      left: 20%;
+    }
+    @include breakpoint(xl) {
+      left: 22%;
     }
   }
   .content {
@@ -280,6 +316,10 @@
           pagination: {
             el: '.swiper-pagination',
             type: "bullets"
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
           },
           // Some Swiper option/callback...
         },
