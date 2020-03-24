@@ -29,7 +29,7 @@
             <p class="project-name">{{ project.name }}</p>
           </div>
         </swiper-slide>
-        <div class="swiper-pagination" slot="pagination"></div>
+        <div id="swiper-pagination" class="swiper-pagination" slot="pagination"></div>
       </swiper>
     </div>
     <div v-if="exerpt || madeFor" class="exerpt-container">
@@ -50,7 +50,7 @@
   @import "../sass/variables/_breakpoints.scss";
 
   // SWIPER
-  .swiper-pagination ::v-deep {
+  #swiper-pagination ::v-deep {
     @include breakpoint(lg) {
       bottom: 2rem;
     }
@@ -278,7 +278,7 @@
         projects: [
           {
             name: 'Johanwestin',
-            github: 'https://github.com/jotner/foresightbank',
+            github: 'https://github.com/johanbwestin/portfolio',
             demo: 'https://johanwestin.com/#/',
             img: require('../media/png/portfolio.png'),
             exerpt: 'Vuejs, VueRouter, Vuex, SendGrid, GSAP, Express, Nodejs, Webpack, nginx, letsencrypt, Adobe XD.',
