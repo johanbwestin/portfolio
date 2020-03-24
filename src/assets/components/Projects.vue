@@ -37,10 +37,7 @@
         <span>Technologies Used:</span>
         {{ exerpt }}
       </p>
-      <p v-if="madeFor" class="project-for">
-        <span>Made For:</span>
-        {{ madeFor }}
-      </p>
+      <p v-if="madeFor" class="project-for">{{ madeFor }}</p>
     </div>
   </div>
 </template>
@@ -51,7 +48,7 @@
 
   // SWIPER
   #swiper-pagination ::v-deep {
-    @include breakpoint(lg) {
+    @include breakpoint(xl) {
       bottom: 2rem;
     }
     .swiper-pagination-bullet {
@@ -94,6 +91,8 @@
         bottom: 1.5rem;
       }
       p {
+        color: $p-thirdary;
+        text-shadow: none;
         text-align: center;
         span {
         }
@@ -282,7 +281,7 @@
             demo: 'https://johanwestin.com/#/',
             img: require('../media/png/portfolio.png'),
             exerpt: 'Vuejs, VueRouter, Vuex, SendGrid, GSAP, Express, Nodejs, Webpack, nginx, letsencrypt, Adobe XD.',
-            madeFor: "Me 😊"
+            madeFor: 'This is my own site that you are visiting right now 😊'
           },
           {
             name: 'EZNET',
@@ -290,7 +289,7 @@
             demo: 'https://jotner.se/eznet/',
             img: require('../media/png/eznet.png'),
             exerpt: 'Wordpress, Woocommerce, JavaScript, Swiper, Adobe XD.',
-            madeFor: "School project"
+            madeFor: 'A webpage made for a fictional webshop.'
           },
           {
             name: 'Alingsås- akademin',
@@ -298,31 +297,31 @@
             demo: 'http://xn--alingssakademin-mlb.se/',
             img: require('../media/png/mat.png'),
             exerpt: 'Wordpress, JavaScript, Jquery, SCSS, Webpack, Adobe XD.',
-            madeFor: "A Client"
+            madeFor: 'This was made for a client.'
           },
           {
             name: 'EZTV',
             github: 'https://github.com/jotner/eztv',
             demo: '',
             img: require('../media/png/eztv.png'),
-            exerpt: 'Technologies used: PHP, Laravel, Adobe XD.',
-            madeFor: "School project"
+            exerpt: 'PHP, Laravel, Adobe XD.',
+            madeFor: 'A project for the course "PHP & database management".'
           },
           {
             name: 'Foresight Bank',
             github: 'https://github.com/jotner/foresightbank',
             demo: '',
             img: require('../media/png/bank.png'),
-            exerpt: 'Technologies used: Nodejs, Webbpack, Vuejs, Express, Sqlite, Adobe XD.',
-            madeFor: "School project"
+            exerpt: 'Nodejs, Webbpack, Vuejs, Express, Sqlite, Adobe XD.',
+            madeFor: 'A webpage made for a fictional bank.'
           },
           {
             name: 'Everzone',
             github: 'https://github.com/jotner/everzone',
             demo: '',
             img: require('../media/png/everzone.png'),
-            exerpt: 'Technologies used: Wordpress, Adobe XD.',
-            madeFor: "School project"
+            exerpt: 'PHP, Wordpress, JavaScript, Adobe XD.',
+            madeFor: 'WordPress theme created for a fictional amusement park'
           },
         ],
       }
