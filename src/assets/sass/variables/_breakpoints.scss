@@ -38,6 +38,12 @@
   @else if $class == maxh {
     @media (max-height: 740px) { @content; }
   }
+  @else if $class == maxhmd {
+    @media (max-height: 830px) { @content; }
+  }
+  @else if $class == maxhlg {
+    @media (max-height: 890px) { @content; }
+  }
   @else if $class == minh {
     @media (min-height: 820px) { @content; }
   }
