@@ -87,15 +87,18 @@
       @include breakpoint(md) {
         width: 50%;
       }
-      @include breakpoint(maxh) {
-        bottom: 0rem;
-      }
       @include breakpoint(maxhmd) {
         bottom: 4rem;
       }
-      @include breakpoint(maxhlg) {
-        bottom: 8rem;
+      @include breakpoint(maxhsmed) {
+        bottom: 1.5rem;
       }
+      @include breakpoint(maxh) {
+        bottom: 1.5rem;
+      }
+      // @include breakpoint(maxhlg) {
+      //   bottom: 8rem;
+      // }
       p {
         color: $p-thirdary;
         text-shadow: none;
