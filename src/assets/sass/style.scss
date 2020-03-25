@@ -180,27 +180,27 @@ a {
   }
 }
 
-::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
-  font-family: "Commondore", sans-serif;
-  opacity: 1; /* Firefox */
-  color: $bg-secondary;
-  font-size: 1.2rem;
-}
+// ::placeholder {
+//   /* Chrome, Firefox, Opera, Safari 10.1+ */
+//   font-family: "Commondore", sans-serif;
+//   opacity: 1; /* Firefox */
+//   color: $bg-secondary;
+//   font-size: 1.2rem;
+// }
 
-:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  font-family: "Commondore", sans-serif;
-  color: $bg-secondary;
-  font-size: 1.2rem;
-}
+// :-ms-input-placeholder {
+//   /* Internet Explorer 10-11 */
+//   font-family: "Commondore", sans-serif;
+//   color: $bg-secondary;
+//   font-size: 1.2rem;
+// }
 
-::-ms-input-placeholder {
-  /* Microsoft Edge */
-  font-family: "Commondore", sans-serif;
-  color: $bg-secondary;
-  font-size: 1.2rem;
-}
+// ::-ms-input-placeholder {
+//   /* Microsoft Edge */
+//   font-family: "Commondore", sans-serif;
+//   color: $bg-secondary;
+//   font-size: 1.2rem;
+// }
 .cls-1 {
   fill: rgba(217, 255, 255, 0.14);
 }
@@ -215,13 +215,13 @@ a {
 
 // Input fields
 /* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+// input::-webkit-outer-spin-button,
+// input::-webkit-inner-spin-button {
+//   -webkit-appearance: none;
+//   margin: 0;
+// }
 
-/* Firefox */
-input[type="number"] {
-  -moz-appearance: textfield;
-}
+// /* Firefox */
+// input[type="number"] {
+//   -moz-appearance: textfield;
+// }
