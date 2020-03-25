@@ -5,7 +5,7 @@
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 87 69"
-      @click="onClick"
+      @click="hamburgerHandler"
       @mouseover="mouseOver"
       @mouseleave="mouseLeave"
     >
@@ -95,27 +95,27 @@
       </g>
     </svg>
     <ul v-if="$store.state.active" class="menu">
-      <li @click="$store.commit('walkAnim', 'home'), onClick()">
+      <li @click="$store.commit('walkAnim', 'home'), hamburgerHandler()">
         <router-link v-scroll-to="'#project'" to="/">
           <p>Project</p>
         </router-link>
       </li>
-      <li @click="$store.commit('walkAnim', 'about'), onClick()">
+      <li @click="$store.commit('walkAnim', 'about'), hamburgerHandler()">
         <router-link v-scroll-to="'#about'" to="/about">
           <p>About</p>
         </router-link>
       </li>
-      <li @click="$store.commit('walkAnim', 'educations'), onClick()">
+      <li @click="$store.commit('walkAnim', 'educations'), hamburgerHandler()">
         <router-link v-scroll-to="'#education'" to="/educations">
           <p>Education</p>
         </router-link>
       </li>
-      <li @click="$store.commit('walkAnim', 'contact'), onClick()">
+      <li @click="$store.commit('walkAnim', 'contact'), hamburgerHandler()">
         <router-link v-scroll-to="'#contact'" to="/contact">
           <p>Contact</p>
         </router-link>
       </li>
-      <li @click="onClick">
+      <li @click="hamburgerHandler">
         <a v-scroll-to="'#qualification'">
           <p>Qualification</p>
         </a>
@@ -258,7 +258,7 @@
       mouseLeave() {
         this.shadowColor = '#D72EDD'
       },
-      onClick() {
+      hamburgerHandler() {
         if (!this.$store.state.active) {
           this.$store.state.active = true
           this.$store.state.menuColor = '#162452'

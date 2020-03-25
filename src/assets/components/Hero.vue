@@ -2,7 +2,7 @@
   <section class="header">
     <h1>Johan Westin</h1>
     <p class="about">Web developer based in Gothenburg</p>
-    <div @click="$store.commit('walkAnim', { x: 0, y: 0 }), onClick()" class="btn">
+    <div @click="$store.commit('walkAnim', 'home'), onClick()" class="btn">
       <router-link v-scroll-to="'#project'" to="/">
         <p>Projects</p>
       </router-link>
