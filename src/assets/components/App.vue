@@ -1,9 +1,9 @@
 <template>
   <div>
     <hamburger-menu />
-    <!-- <hero /> -->
-    <!-- <animations /> -->
-    <!-- <qualifications /> -->
+    <hero />
+    <animations />
+    <qualifications />
     <footers />
   </div>
 </template>

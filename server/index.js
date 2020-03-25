@@ -19,8 +19,7 @@ app.use('/api/send', mailSend)
 if(process.env.NODE_ENV === 'production') {
   // Static Folder
   app.use(express.static(__dirname + '/public/'))
-  app.disable('etag');
-  
+
   // Handle SPA
   app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'))
 }

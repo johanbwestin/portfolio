@@ -3,7 +3,7 @@
     <div v-view="viewHandler" class="trigger"></div>
     <div class="about">
       <div class="content-container">
-        <!-- <router-view /> -->
+        <router-view />
       </div>
       <div class="animation-menu">
         <router-link to="/">
