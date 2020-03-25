@@ -29,17 +29,17 @@ Vue.use(VueRouter)
 
 Vue.config.devtools = true
 
-const child = new Vue({
-  mq: {
-    xs: "(max-width: 320px, min-width: 320px)",
-    xsSm: "(min-width: 430px)",
-    sm: "(min-width: 540px) and (max-width: 670px)",
-    smMed: "(min-width: 670px) and (max-width: 990px)",
-    md: "(min-width: 990px) and (max-width: 1200px)",
-    lg: "(min-width: 1200px)",
-    xl: "(min-width: 1700px)",
-  },
-})
+// const child = new Vue({
+//   mq: {
+//     xs: "(max-width: 320px, min-width: 320px)",
+//     xsSm: "(min-width: 430px)",
+//     sm: "(min-width: 540px) and (max-width: 670px)",
+//     smMed: "(min-width: 670px) and (max-width: 990px)",
+//     md: "(min-width: 990px) and (max-width: 1200px)",
+//     lg: "(min-width: 1200px)",
+//     xl: "(min-width: 1700px)",
+//   },
+// })
 
 const mutations = {
   onEnter() {
@@ -161,14 +161,14 @@ new Vue({
   render: h => h(App),
   router,
   store,
-  child,
-  mq: {
-    xs: "(max-width: 320px, min-width: 320px)",
-    xsSm: "(min-width: 430px)",
-    sm: "(min-width: 540px) and (max-width: 670px)",
-    smMed: "(min-width: 670px) and (max-width: 990px)",
-    md: "(min-width: 990px) and (max-width: 1200px)",
-    lg: "(min-width: 1200px)",
-    xl: "(min-width: 1700px)",
-  },
+  // child,
+  // mq: {
+  //   xs: "(max-width: 320px, min-width: 320px)",
+  //   xsSm: "(min-width: 430px)",
+  //   sm: "(min-width: 540px) and (max-width: 670px)",
+  //   smMed: "(min-width: 670px) and (max-width: 990px)",
+  //   md: "(min-width: 990px) and (max-width: 1200px)",
+  //   lg: "(min-width: 1200px)",
+  //   xl: "(min-width: 1700px)",
+  // },
 })
