@@ -9,6 +9,7 @@ const cors = require('cors')
 app.use(bodyParser.json())
 app.use(express.static(path.join(path.resolve(), 'public')))
 app.use(cors())
+app.disable('etag');
 
 // Handle Mail
 const mailSend = require('./routes/api/mailSend')
