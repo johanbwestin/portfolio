@@ -9,7 +9,6 @@ const cors = require('cors')
 app.use(bodyParser.json())
 app.use(express.static(path.join(path.resolve(), 'public')))
 app.use(cors())
-app.disable('etag');
 
 // Handle Mail
 const mailSend = require('./routes/api/mailSend')
@@ -20,9 +19,10 @@ app.use('/api/send', mailSend)
 if(process.env.NODE_ENV === 'production') {
   // Static Folder
   app.use(express.static(__dirname + '/public/'))
-
+  
   // Handle SPA
   app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'))
+  app.disable('etag');
 }
 
 app.listen({ port: port }, function () {
