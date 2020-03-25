@@ -11,7 +11,7 @@
               <p>{{ errors[0] }}</p>
             </div>
           </ValidationProvider>
-          <ValidationProvider rules="email" v-slot="{ errors }">
+          <ValidationProvider rules="required|email" v-slot="{ errors }">
             <div class="input-container">
               <input v-model="form.email" placeholder="Mail" type="mail" name="mail" />
               <p>{{ errors[0] }}</p>
@@ -46,10 +46,6 @@
         </form>
       </ValidationObserver>
     </div>
-    <!-- <div v-if="$store.state.status.result === 'error' || $store.state.status.result === 'success'" class="bubble">
-      <p>{{ $store.state.status.message }}</p>
-      <img class src="../media/svg/bubble1.svg" alt="talk bubble" />
-    </div> -->
   </div>
 </template>
 <style lang="scss" scoped>
