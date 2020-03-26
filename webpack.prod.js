@@ -22,7 +22,7 @@ module.exports = merge(common, {
       // mode: 'none'
     }),
     new HtmlWebpackPlugin({
-      favicon:'./src/assets/media/png/favicon.png',
+      favicon: './src/assets/media/png/favicon.png',
       template: "./src/template.html",
       // chunksSortMode: "dependency,"
       minify: {
@@ -41,17 +41,22 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: [ 'vue-style-loader', 'css-loader' ]
-     },
+        loader: 'vue-loader',
+        test: /\.vue$/
+      },
+      {
+        test: /\.js$/,
+        // exclude: /(node_modules)/,
+        use: 'babel-loader'
+      },
       {
         test: /\.scss$/,
-        use:  ['vue-style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: ['vue-style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
         // outputPath: 'assets/css'
       },
       {
-        loader: 'vue-loader',
-        test: /\.vue$/
+        test: /\.css$/,
+        use: ['vue-style-loader', 'css-loader']
       },
     ]
   }

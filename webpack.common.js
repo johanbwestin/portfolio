@@ -2,6 +2,8 @@ const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const webpack = require('webpack')
 const Dotenv = require('dotenv-webpack')
+require("@babel/polyfill");
+require("core-js");
 
 module.exports = {
   entry: {

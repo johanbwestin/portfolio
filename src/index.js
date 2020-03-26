@@ -1,3 +1,4 @@
+import 'babel-polyfill'
 import './assets/sass/style.scss'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
