@@ -36,23 +36,28 @@ module.exports = merge(common, {
     minimizer: [
       new OptimizeCssAssetsPlugin(),
       new TerserPlugin()
-    ]
+    ],
+    // splitChunks: {
+    //   // Must be specified for HtmlWebpackPlugin to work correctly.
+    //   // See: https://github.com/jantimon/html-webpack-plugin/issues/882
+    //   chunks: 'all',
+    // },
   },
   module: {
     rules: [
+      // {
+      //   test: /\.(js)$/,
+      //   loader: 'babel-loader',
+      //   exclude: '/node_modules/'
+      //   // include: [path.join(__dirname, './server/public')],
+      // },
       {
         loader: 'vue-loader',
         test: /\.vue$/
       },
       {
-        test: /\.js$/,
-        // exclude: /(node_modules)/,
-        use: 'babel-loader'
-      },
-      {
         test: /\.scss$/,
         use: ['vue-style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-        // outputPath: 'assets/css'
       },
       {
         test: /\.css$/,

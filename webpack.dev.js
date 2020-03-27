@@ -32,25 +32,15 @@ module.exports = merge(common, {
   ],
   module: {
     rules: [
-      // {
-      //   test: /\.js$/,
-      //   use: {
-      //     loader: 'babel-loader',
-      //     options: {
-      //       presets: ['@babel/preset-env'],
-      //       envName: 'development'
-      //     }, 
-      //   }
-      // },
       {
         loader: 'vue-loader',
         test: /\.vue$/
       },
-      {
-        test: /\.js$/,
-        exclude: /(node_modules)/,
-        use: 'babel-loader'
-      },
+      // {
+      //   test: /\.js$/,
+      //   loader: 'babel-loader',
+      //   // include: [path.join(__dirname, 'src')],
+      // },
       {
         loader: ['vue-style-loader', 'css-loader'],
         test: /\.css$/

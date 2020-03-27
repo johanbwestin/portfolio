@@ -2,8 +2,6 @@ const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const webpack = require('webpack')
 const Dotenv = require('dotenv-webpack')
-require("@babel/polyfill");
-require("core-js");
 
 module.exports = {
   entry: {
@@ -15,6 +13,12 @@ module.exports = {
       {
         test: /\.html$/,
         use: ["html-loader"]
+      },
+      {
+        test: /\.(js)$/,
+        loader: 'babel-loader',
+        exclude: '/node_modules/'
+        // include: [path.join(__dirname, './server/public')],
       },
       {
         test: /\.(gif|mp4)(\?[a-z0-9=.]+)?$/,
@@ -35,7 +39,6 @@ module.exports = {
           options: {
             name: "[name].[hash].[ext]",
             outputPath: "assets/images",
-            // publicPath: "assets/images",
             esModule: false,
           }
         }
@@ -47,7 +50,6 @@ module.exports = {
           options: {
             name: "[name].[hash].[ext]",
             outputPath: "assets/fonts",
-            // publicPath: "assets/fonts",
             esModule: false,
           }
         }
