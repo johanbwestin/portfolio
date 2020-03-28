@@ -7,6 +7,7 @@
         <p>Projects</p>
       </router-link>
     </div>
+    <img id="bg-img" class="video-background" src="../media/png/bg.png" alt="Background">
     <video
       class="video-background"
       alt="background video"
@@ -112,6 +113,11 @@
       width: auto;
       height: auto;
       transform: translate(-50%, -50%);
+    }
+
+    #bg-img {
+      width: auto;
+      height: 127%;
     }
   }
 </style>
