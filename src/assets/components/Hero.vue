@@ -110,14 +110,19 @@
       z-index: 1;
       min-width: 100%;
       min-height: 100%;
-      width: auto;
-      height: auto;
+      // width: auto;
+      // height: auto;
       transform: translate(-50%, -50%);
+      // width: 1920px;
+      height: 127%;
+      // display: none;
     }
 
     #bg-img {
-      width: auto;
-      height: 127%;
+      // width: 1280px;
+      // height: 720px;
+      //       min-width: 100%;
+      // min-height: 100%;
     }
   }
 </style>
