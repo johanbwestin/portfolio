@@ -100,14 +100,14 @@
           <p>Project</p>
         </router-link>
       </li>
-      <li @click="$store.commit('walkAnim', 'about'), hamburgerHandler()">
-        <router-link v-scroll-to="'#about'" to="/about">
-          <p>About</p>
-        </router-link>
-      </li>
       <li @click="$store.commit('walkAnim', 'educations'), hamburgerHandler()">
         <router-link v-scroll-to="'#education'" to="/educations">
           <p>Education</p>
+        </router-link>
+      </li>
+      <li @click="$store.commit('walkAnim', 'about'), hamburgerHandler()">
+        <router-link v-scroll-to="'#about'" to="/about">
+          <p>About</p>
         </router-link>
       </li>
       <li @click="$store.commit('walkAnim', 'contact'), hamburgerHandler()">
@@ -184,13 +184,6 @@
                 bottom: 0.5rem;
               }
             }
-            // @include breakpoint(lg) {
-            //   font-size: 2rem;
-            //   margin: {
-            //     top: 0.8rem;
-            //     bottom: 0.8rem;
-            //   }
-            // }
             @include breakpoint(xl) {
               font-size: 2.2rem;
               margin: {
@@ -266,7 +259,7 @@
           this.$store.commit('onEnter')
           if (this.$store.state.inSection) {
             this.$store.commit('onEnter')
-            // console.log('insection', this.$store.state.inSection, 'active', this.$store.state.active)
+            // console.log('insection',  this.$store.state.inSection, 'active', this.$store.state.active)
           } else {
             this.$store.commit('onLeave')
             // console.log('!insection', this.$store.state.inSection, 'active', this.$store.state.active)

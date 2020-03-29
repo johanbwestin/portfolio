@@ -7,7 +7,7 @@
         <p>Projects</p>
       </router-link>
     </div>
-    <img id="bg-img" class="video-background" src="../media/png/bg.png" alt="Background">
+    <img class="video-background" src="../media/png/bg.png" alt="Background">
     <video
       class="video-background"
       alt="background video"
@@ -47,10 +47,8 @@
     .about {
       width: 100%;
       position: absolute;
-      // top: 42%;
       z-index: 4;
       text-align: center;
-      // color: $h1-primary;
       text-shadow: $h1-shadow;
       @include breakpoint(xsmin) {
         top: 45%;
@@ -69,7 +67,6 @@
       }
     }
     div {
-      // width: 100%;
       position: absolute;
       top: 45%;
       z-index: 4;
@@ -113,16 +110,7 @@
       // width: auto;
       // height: auto;
       transform: translate(-50%, -50%);
-      // width: 1920px;
       height: 127%;
-      // display: none;
-    }
-
-    #bg-img {
-      // width: 1280px;
-      // height: 720px;
-      //       min-width: 100%;
-      // min-height: 100%;
     }
   }
 </style>

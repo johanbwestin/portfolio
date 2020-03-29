@@ -19,11 +19,11 @@
           <span class="dot"></span>
           <span class="dot"></span>
         </div>
-        <router-link to="/about">
-          <div class="waypoint-container" @click="$store.commit('walkAnim', 'about')">
+        <router-link to="/educations">
+          <div class="waypoint-container" @click="$store.commit('walkAnim','educations')">
             <img class="waypoint" alt="waypoint" src="../media/svg/waypoint-2.svg" />
             <img class="waypoint-sm" alt="waypoint" src="../media/svg/wp-small.svg" />
-            <h4>About</h4>
+            <h4>Education</h4>
           </div>
         </router-link>
         <div class="dot-container">
@@ -32,11 +32,11 @@
           <span class="dot"></span>
           <span class="dot"></span>
         </div>
-        <router-link to="/educations">
-          <div class="waypoint-container" @click="$store.commit('walkAnim','educations')">
+        <router-link to="/about">
+          <div class="waypoint-container" @click="$store.commit('walkAnim', 'about')">
             <img class="waypoint" alt="waypoint" src="../media/svg/waypoint-3.svg" />
             <img class="waypoint-sm" alt="waypoint" src="../media/svg/wp-small.svg" />
-            <h4>Education</h4>
+            <h4>About</h4>
           </div>
         </router-link>
         <div class="dot-container">

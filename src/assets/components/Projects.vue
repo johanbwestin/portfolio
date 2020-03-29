@@ -1,4 +1,3 @@
-
 <template>
   <div class="content">
     <h2 id="project">Projects</h2>
@@ -132,15 +131,10 @@
       @include breakpoint(maxh) {
         bottom: 1.5rem;
       }
-      // @include breakpoint(maxhlg) {
-      //   bottom: 8rem;
-      // }
       p {
         color: $p-thirdary;
         text-shadow: none;
         text-align: center;
-        span {
-        }
       }
     }
     .project-container {
@@ -164,7 +158,6 @@
       @include breakpoint(lg) {
         width: 50%;
       }
-
       .project {
         position: relative;
         flex-direction: column;
@@ -200,7 +193,6 @@
           width: 10rem;
           .circle {
             margin: {
-              // top: 3rem;
               left: auto;
               right: auto;
             }

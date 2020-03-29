@@ -72,7 +72,7 @@ const mutations = {
       if (to === "home") {
         path = { x: 0, y: 0 }
       }
-      if (to === "about") {
+      if (to === "educations") {
         if (child.$mq.sm) {
           path = { x: 131, y: 0 }
         }
@@ -86,7 +86,7 @@ const mutations = {
           path = { x: 216, y: 0 }
         }
       }
-      if (to === "educations") {
+      if (to === "about") {
         if (child.$mq.sm) {
           path = { x: 260, y: 0 }
         }
