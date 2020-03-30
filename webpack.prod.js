@@ -7,6 +7,7 @@ const merge = require("webpack-merge")
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const PreloadWebpackPlugin = require('preload-webpack-plugin')
 
 module.exports = merge(common, {
   mode: 'production',
@@ -30,6 +31,11 @@ module.exports = merge(common, {
         removeAttributeQuotes: true,
         removeComments: true
       }
+    }),
+    new PreloadWebpackPlugin({
+      rel: 'preload',
+      as: 'script',
+      include: 'allChunks'
     })
   ],
   optimization: {

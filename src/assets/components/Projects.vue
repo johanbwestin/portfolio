@@ -17,10 +17,10 @@
                 class="bg"
               ></div>
               <div class="link-container">
-                <a v-if="project.demo" :href="project.demo" class="demo" target="_blank">
+                <a v-if="project.demo" :href="project.demo" class="demo" target="_blank" rel="noopener">
                   <p>Demo ⯈</p>
                 </a>
-                <a v-if="project.github" :href="project.github" class="github" target="_blank">
+                <a v-if="project.github" :href="project.github" class="github" target="_blank" rel="noopener">
                   <p>Github⯈</p>
                 </a>
               </div>
