@@ -233,7 +233,6 @@
     data() {
       return {
         value: '',
-        // serrors: [],
         form: {
           name: null,
           email: null,

@@ -41,20 +41,14 @@ module.exports = merge(common, {
         },
       })
     ],
-    // splitChunks: {
-    //   // Must be specified for HtmlWebpackPlugin to work correctly.
-    //   // See: https://github.com/jantimon/html-webpack-plugin/issues/882
-    //   chunks: 'all',
-    // },
+    splitChunks: {
+      // Must be specified for HtmlWebpackPlugin to work correctly.
+      // See: https://github.com/jantimon/html-webpack-plugin/issues/882
+      chunks: 'all',
+    },
   },
   module: {
     rules: [
-      // {
-      //   test: /\.(js)$/,
-      //   loader: 'babel-loader',
-      //   exclude: '/node_modules/'
-      //   // include: [path.join(__dirname, './server/public')],
-      // },
       {
         loader: 'vue-loader',
         test: /\.vue$/

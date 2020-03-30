@@ -296,7 +296,6 @@
       }
     },
     mounted() {
-      console.log('Current Swiper instance object', this.swiper)
       this.swiper.slideTo(0, 1000, true)
     },
     data() {

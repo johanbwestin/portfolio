@@ -36,11 +36,6 @@ module.exports = merge(common, {
         loader: 'vue-loader',
         test: /\.vue$/
       },
-      // {
-      //   test: /\.js$/,
-      //   loader: 'babel-loader',
-      //   // include: [path.join(__dirname, 'src')],
-      // },
       {
         loader: ['vue-style-loader', 'css-loader'],
         test: /\.css$/
