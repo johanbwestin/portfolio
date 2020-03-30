@@ -35,7 +35,7 @@ module.exports = merge(common, {
     new PreloadWebpackPlugin({
       rel: 'preload',
       as: 'script',
-      include: 'allChunks'
+      include: 'asyncChunks'
     })
   ],
   optimization: {
