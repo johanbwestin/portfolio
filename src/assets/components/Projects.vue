@@ -2,7 +2,7 @@
   <div class="content">
     <h2 id="project">Projects</h2>
     <div class="project-container container">
-      <swiper class="hej" ref="mySwiper" :options="swiperOptions">
+      <swiper ref="mySwiper" :options="swiperOptions">
         <swiper-slide v-for="project in projects" :key="project" class="project">
           <div
             class="circle-container"
@@ -315,6 +315,14 @@
           // Some Swiper option/callback...
         },
         projects: [
+          {
+            name: 'Comida',
+            github: 'https://github.com/johanbwestin/comida',
+            demo: '',
+            img: require('../media/png/comida.png'),
+            exerpt: 'Vue CLI, VueRouter, Vuex, Wordpress API, Adobe XD.',
+            madeFor: 'A recipe site i have been working on in my spare time'
+          },
           {
             name: 'Johanwestin',
             github: 'https://github.com/johanbwestin/portfolio',
